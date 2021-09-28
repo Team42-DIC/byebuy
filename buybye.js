@@ -10,6 +10,9 @@ newNode.textContent = "byebuy: Postpone & Save CO2";
 newNode.style.backgroundColor = "#90ee90";
 newNode.addEventListener("click", addToList)
 
+newNode.addEventListener("mouseenter", () => newNode.style.backgroundColor = "#64e764");
+newNode.addEventListener("mouseleave", () => newNode.style.backgroundColor = "#90ee90");
+
 const nodes = document.querySelectorAll("#addToCart_feature_div")
 let cartButton = null
 nodes.forEach(node => {
