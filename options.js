@@ -44,55 +44,67 @@ document.addEventListener("DOMContentLoaded", () => {
             itemRoot.innerHTML = "<p>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";
         }
         for (const item in result.items) {
-            console.log("item", result.items[item])
+            console.log("item", result.items[item]);
             
             const itemDiv = document.createElement("div");
 
-            const itemHeaderDiv = document.createElement("div");
-            itemHeaderDiv.className += "itemHeader";
 
-            const itemName = document.createElement("h2")
-            itemName.innerHTML = result.items[item].name + " (" + relativeTime(new Date(result.items[item].timeStamp)) + ")";
-            itemHeaderDiv.appendChild(itemName);
-
-            const itemDelete = document.createElement("input")
-            itemDelete.type = "image";
-            itemDelete.src = "icons/delete.png";
-            itemDelete.width = 32;
-            itemDelete.addEventListener("click", () => deleteItem(result.items[item].timeStamp));
-            itemHeaderDiv.appendChild(itemDelete)
-
-            itemDiv.appendChild(itemHeaderDiv);
-
+            const itemName = document.createElement("h2");
             const itemLink = document.createElement("a");
             itemLink.href = result.items[item].link;
+            itemLink.innerText = result.items[item].name;
             itemLink.target = "_blank";
-            itemLink.className += "link"
-            itemLink.innerHTML = result.items[item].link;
-            itemDiv.appendChild(itemLink);
-
-            itemDiv.appendChild(document.createElement("br"));
-
-            const itemPrice = document.createElement("span")
-            itemPrice.innerHTML = result.items[item].price;
-            itemPrice.className += "price"
-            itemDiv.appendChild(itemPrice);
-
-
-            itemDiv.appendChild(document.createElement("br"))
+            itemName.appendChild(itemLink);
+            itemDiv.appendChild(itemName);
 
             const itemImage = document.createElement("img");
             if (result.items[item].image) {
                 itemImage.src = result.items[item].image;
-                itemImage.width = 128;
             } else {
                 itemImage.src = "open-box.png";
                 itemImage.className += "greyed";
-                itemImage.width = 64;
             }
             itemDiv.appendChild(itemImage);
-            
-            itemRoot.appendChild(itemDiv)
+            const itemPrice = document.createElement("span");
+            itemPrice.innerText = result.items[item].price;
+            itemPrice.className += "price";
+            itemDiv.appendChild(itemPrice);
+            const itemTime = document.createElement("span");
+            itemTime.innerText = relativeTime(result.items[item].timeStamp);
+            itemTime.className += "time";
+            itemDiv.appendChild(itemTime);
+            const buttons = document.createElement("div");
+            buttons.className += "buttons";
+
+            const deleteDiv = document.createElement("div");
+            deleteDiv.className += "tooltip";
+            deleteDiv.id = "delete";
+            const tooltip1 = document.createElement("span");
+            tooltip1.className += "tooltiptext";
+            tooltip1.innerText = "I want to buy it anyway";
+            deleteDiv.appendChild(tooltip1);
+            const itemDelete = document.createElement("input");
+            itemDelete.type = "image";
+            itemDelete.src = "icons/sad.png";
+            itemDelete.addEventListener("click", () => deleteItem(result.items[item].timeStamp));
+            deleteDiv.appendChild(itemDelete);
+            buttons.appendChild(deleteDiv);
+
+            const buyDiv = document.createElement("div");
+            buyDiv.className += "tooltip";
+            buyDiv.id = "buy";
+            const tooltip2 = document.createElement("span");
+            tooltip2.className += "tooltiptext";
+            tooltip2.innerText = "Nevermind, I don't want to buy it anymore";
+            buyDiv.appendChild(tooltip2);
+            const itemBuy = document.createElement("input");
+            itemBuy.type = "image";
+            itemBuy.src = "icons/check-mark.png";
+            itemBuy.addEventListener("click", () => {});
+            buyDiv.appendChild(itemBuy);
+            buttons.appendChild(buyDiv);
+            itemDiv.appendChild(buttons);
+            itemRoot.appendChild(itemDiv);
         }
     });
 });

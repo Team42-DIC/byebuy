@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 <style>
 body {
-    max-width: 800px;
+    max-width: max(80%, 800px);
     margin: 0 auto;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
@@ -19,20 +19,141 @@ body {
   justify-content: space-between;
 }
 h1 {
-    text-decoration: underline;
+    text-align: center;
 }
 h2 {
+  font-size: 16px;
     margin: 0;
 }
 .price {
     color: red;
     font-size: larger;
+    grid-area: rest;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: gray;
+  text-decoration: underline;
 }
 
 .link {
     font-size: small;
 }
 
+input {
+  width: 32px;
+}
+#itemRoot {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(470px, 2fr));
+  gap: 20px;
+}
+h3 {
+  margin:  0;
+  padding: 0;
+}
+
+#itemRoot > div {
+  border-radius: 10px;
+  border: darkgray solid 1px;
+  padding: 15px;
+  display: grid;
+  column-gap: 5px;
+  row-gap: 15px;
+  align-items: center;
+  justify-items: center;
+  grid-template-areas: 
+  "title"
+  "time"
+  "image  "
+  "rest "
+  "buttons ";
+}
+#itemRoot > div > img {
+  grid-area: image;
+  width: min(100%, 300px);
+  justify-self: center;
+}
+#itemRoot > div > h2 {
+  grid-area: title;
+}
+.buttons {
+  grid-area: buttons;
+  justify-self: center;
+  width: 80%;
+  height: 40px;
+  display: flex;
+}
+.buttons > div {
+  margin: 0 10px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+#delete {
+  background-color: lightsalmon;
+}
+#delete:hover {
+  background-color: red;
+}
+#buy {
+  background-color: lightgreen;
+}
+ #buy:hover {
+   background-color: green;
+ }
+ ul {
+   margin: 0 ;
+   
+   padding: 0;
+   list-style: none;
+ }
+ li {
+   margin: 10px 0;
+ }
+ .tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 </style>
   </head>
 
