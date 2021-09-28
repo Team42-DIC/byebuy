@@ -60,18 +60,31 @@ function closePopup() {
 function renderModalRemindMe() {
     modal.innerHTML = '';
     const askMeAgainLabel = document.createElement("p");
-    askMeAgainLabel.innerText = "Postpone this product...";
+    askMeAgainLabel.innerHTML = "<p>Is this purchase really necessary?<p> Maybe you should think about it for a while. Be part of a sustainable world!<p> Postpone this product...";
+    askMeAgainLabel.style.textAlign = "center";
+    
     modal.appendChild(askMeAgainLabel);
 
     const askMeAgainButtons = document.createElement("div");
-    askMeAgainButtons.style.display = "inline-block";
+    askMeAgainButtons.style.display = "flex";
+    askMeAgainButtons.style.flexDirection = "column";
+    askMeAgainButtons.style.justifyContent = "space-around";
+    askMeAgainButtons.style.height = "250px";
+
     modal.appendChild(askMeAgainButtons);
 
     const addAskMeAgain = (label, handler) => {
         const askMeAgainBtn = document.createElement("button");
         askMeAgainBtn.innerText = label;
-        askMeAgainBtn.addEventListener("click", handler);
-        askMeAgainBtn.style.marginRight = "5px";
+        askMeAgainBtn.addEventListener("click", event => {
+          event.stopPropagation();
+          handler();
+        });
+        askMeAgainBtn.style.padding = "10px";
+        askMeAgainBtn.style.borderRadius = "10px";
+        askMeAgainBtn.className += "a-button";
+        askMeAgainBtn.style.borderWidth = "2px";
+        askMeAgainBtn.style.margin = 0;
         askMeAgainButtons.appendChild(askMeAgainBtn);
     }
 
@@ -79,30 +92,49 @@ function renderModalRemindMe() {
     addAskMeAgain("for 3 days", () => addToList(3));
     addAskMeAgain("for a week", () => addToList(7));
     addAskMeAgain("for a month", () => addToList(30));
-    addAskMeAgain("forever", () => closePopup());
+    addAskMeAgain("I don't need this at all!", () => renderModalSuccess());
 }
 
 function renderModalSuccess() {
     modal.innerHTML = '';
     const successLabel = document.createElement("p");
-    successLabel.innerText = "Purchase postponed. Thank you for being conscious about your purchases!"
+    successLabel.innerHTML = "<p>Purchase postponed. <p> Thank you for being conscious about the environment!"
     successLabel.style.color = "green";
     modal.appendChild(successLabel);
 
     const buttons = document.createElement("div");
-    buttons.style.display = "inline-block";
+    buttons.style.display = "flex";
+    buttons.style.flexDirection = "column";
+    buttons.style.justifyContent = "space-around";
+    buttons.style.height = "150px";
     modal.appendChild(buttons);
 
     const successBtn1 = document.createElement("button");
     successBtn1.innerText = "Continue shopping";
-    successBtn1.addEventListener("click", closePopup);
+    successBtn1.addEventListener("click", event => {
+      event.stopPropagation();
+      closePopup();
+    });
     successBtn1.style.marginRight = "5px";
+    successBtn1.style.padding = "10px";
+    successBtn1.style.borderRadius = "10px";
+    successBtn1.className += "a-button";
+    successBtn1.style.borderWidth = "2px";
+    successBtn1.style.margin = 0;
     buttons.appendChild(successBtn1);
 
     const successBtn2 = document.createElement("button");
     successBtn2.innerText = "Show all postponed purchases";
-    successBtn2.addEventListener("click", event => browser.runtime.openOptionsPage());
+    successBtn2.addEventListener("click", event => {
+      event.stopPropagation();
+      browser.runtime.openOptionsPage();
+    });
     successBtn2.style.marginRight = "5px";
+    successBtn2.style.padding = "10px";
+    successBtn2.style.borderRadius = "10px";
+    successBtn2.className += "a-button";
+    successBtn2.style.borderWidth = "2px";
+    successBtn2.style.margin = 0;
     buttons.appendChild(successBtn2);
 }
 
@@ -117,7 +149,9 @@ function setupPopup() {
     modalContainer.style.width = "100%";
     modalContainer.style.height = "100%";
     modalContainer.style.overflow = "auto";
+    modalContainer.style.backgroundColor = "rgba(0,0,0,0.3)";
     modalContainer.style.display = "none";
+    
     document.addEventListener("click", event => {
         if (!modal.contains(event.target)) {
             closePopup();
@@ -126,10 +160,13 @@ function setupPopup() {
 
     const modal = document.createElement("div");
     modal.style.maxWidth = "500px";
-    modal.style.backgroundColor = "#dcdcdc";
+    modal.style.backgroundColor = "white";
     modal.style.margin = "50px auto";
     modal.style.padding = "10px";
     modal.style.borderRadius = "5px";
+    modal.style.borderColor = "lightgrey";
+    modal.style.borderWidth = "2px";
+
     modalContainer.appendChild(modal);
 
 
