@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     browser.storage.sync.get("items").then(result => {
         const itemRoot = document.querySelector('#itemRoot')
         if (result.items.length === 0) {
-            itemRoot.innerHTML = "<p>No items have been added yet. When you postpone a purchase on Amazon, it will appear here.</p>";
+            itemRoot.innerHTML = "<p>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";
         }
         for (const item in result.items) {
             console.log("item", result.items[item])
@@ -64,16 +64,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
             itemDiv.appendChild(itemHeaderDiv);
 
-
-            const itemPrice = document.createElement("p")
-            itemPrice.innerHTML = result.items[item].price;
-            itemDiv.appendChild(itemPrice);
-
             const itemLink = document.createElement("a");
             itemLink.href = result.items[item].link;
             itemLink.target = "_blank";
+            itemLink.className += "link"
             itemLink.innerHTML = result.items[item].link;
             itemDiv.appendChild(itemLink);
+
+            itemDiv.appendChild(document.createElement("br"));
+
+            const itemPrice = document.createElement("span")
+            itemPrice.innerHTML = result.items[item].price;
+            itemPrice.className += "price"
+            itemDiv.appendChild(itemPrice);
+
 
             itemDiv.appendChild(document.createElement("br"))
 
