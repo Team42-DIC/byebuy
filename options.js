@@ -2,12 +2,12 @@ function deleteItem(timestamp) {
     browser.storage.sync.get("items").then(result => {
         const newItems = [];
         for (const item in result.items) {
-            if (result.items[item].timestamp !== timestamp) {
+            if (result.items[item].timeStamp !== timestamp) {
                 newItems.push(result.items[item]);
             }
         }
-        browser.storage.sync.set({items: newItems});
-        location.reload();
+        console.log("newItems", newItems);
+        browser.storage.sync.set({items: newItems}).then(() => location.reload());
     });
 }
 document.addEventListener("DOMContentLoaded", () => {
