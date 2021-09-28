@@ -11,7 +11,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.mozilla.org/*"],
+      "matches": ["*://*.amazon.de/*"],
       "js": ["buybye.js"]
     }
   ],
