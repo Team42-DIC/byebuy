@@ -4,8 +4,9 @@ function onError(error) {
 }
 var newNode = document.createElement("div");
 newNode.className = "a-button a-button-stack a-spacing-small a-button-inner celwidget a-button-icon ";
+newNode.style.lineHeight = "1.95em"
 newNode.style.width = "100%"
-newNode.textContent = "Buy me later!";
+newNode.textContent = "byebuy: Postpone & Save CO2";
 newNode.style.backgroundColor = "#90ee90";
 newNode.addEventListener("click", addToList)
 
