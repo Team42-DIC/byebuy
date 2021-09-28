@@ -98,7 +98,8 @@ function renderModalRemindMe() {
 function renderModalSuccess() {
     modal.innerHTML = '';
     const successLabel = document.createElement("p");
-    successLabel.innerHTML = "<p>Purchase postponed. <p> Thank you for being conscious about the environment!"
+    successLabel.innerHTML = "<p>Purchase postponed. <p> Thank you for being conscious about the environment!";
+    successLabel.style.textAlign = "center";
     successLabel.style.color = "green";
     modal.appendChild(successLabel);
 
