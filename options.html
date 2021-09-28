@@ -3,18 +3,32 @@
 <html>
   <head>
     <meta charset="utf-8">
+<style>
+body {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.greyed {
+    filter: grayscale(100%);
+}
+
+</style>
   </head>
 
   <body>
+      <h1>Your postponed items</h1>
+
+    <div id="itemRoot"></div>
 
     <form id="itemForm">
         <p>name:<input type="text" id="itemName"></p>
         <p>link:<input type="text" id="itemLink"></p>
+        <p>price:<input type="text" id="itemPrice"></p>
+        <p>image:<input type="text" id="itemImage"></p>
         <input type="submit" value="submit">
     </form>
-
-    <div id="itemRoot">
-    </div>
     <script src="options.js"></script>
+
+    <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   </body>
 </html>
