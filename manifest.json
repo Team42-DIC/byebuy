@@ -27,6 +27,17 @@
     "gecko": {
       "id": "info@byebuy.de"
     }
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/delete.png",
+      "32": "icons/page-32.png"
+    }
   }
 
 }
