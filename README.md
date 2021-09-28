@@ -33,7 +33,7 @@ Wir haben bei unserer Recherche etliche Software-Lösungen für noch bequemere O
 
 Wir halten unseren Beitrag für innovativ, weil er unkompliziert von Menschen weltweit genutzt werden kann und Privatpersonen eine neue Möglichkeit bietet, bewusster und nachhaltiger zu leben. Da unsere Lösung lokal im Browser läuft, kann sie ohne Skalierungsprobleme von beliebig vielen Menschen genutzt werden. Der potenzielle Nutzen unseres Add-Ons ist also immens.
 
-##Setup
+## Setup
 Wir empfehlen für die Nutzung unsers Add-On den Firefox-Browser, da wir nur hier Usability-Tests durchgeführt haben.
 
 ...
