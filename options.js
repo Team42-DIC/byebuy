@@ -22,14 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
             itemHeaderDiv.className += "itemHeader";
 
             const itemName = document.createElement("h2")
-            itemName.innerHTML = result.items[item].name + " (" + new Date(result.items[item].timestamp).toLocaleDateString() + ")";
+            itemName.innerHTML = result.items[item].name + " (" + new Date(result.items[item].timeStamp).toLocaleDateString() + ")";
             itemHeaderDiv.appendChild(itemName);
 
             const itemDelete = document.createElement("input")
             itemDelete.type = "image";
             itemDelete.src = "icons/delete.png";
             itemDelete.width = 32;
-            itemDelete.addEventListener("click", () => deleteItem(result.items[item].timestamp));
+            itemDelete.addEventListener("click", () => deleteItem(result.items[item].timeStamp));
             itemHeaderDiv.appendChild(itemDelete)
 
             itemDiv.appendChild(itemHeaderDiv);
@@ -74,7 +74,7 @@ document.querySelector("#itemForm").addEventListener("submit", event => {
         if (!items) {
             items = [];
         }
-        items.push({name, link, price, image, timestamp: Date.now()});
+        items.push({name, link, price, image, timeStamp: Date.now()});
         console.log("newItems", items)
         browser.storage.sync.set({items});
         location.reload();
