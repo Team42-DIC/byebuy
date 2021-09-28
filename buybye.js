@@ -4,6 +4,7 @@ function onError(error) {
 var newNode = document.createElement("div");
 newNode.className = "a-button a-button-stack a-spacing-small a-button-inner celwidget a-button-icon ";
 newNode.textContent = "Buy me later!";
+newNode.style.backgroundColor = "#90ee90";
 
 var cartButton = document.getElementById("addToCart_feature_div");
 cartButton.parentNode.insertBefore(newNode, cartButton.nextSibling);
