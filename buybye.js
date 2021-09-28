@@ -20,7 +20,6 @@ const nodes = document.querySelectorAll("#addToCart_feature_div")
 let cartButton = null
 nodes.forEach(node => {
     if (node.childNodes.length == 9) {
-        console.log(node.childNodes.length)
         cartButton = node
     }
     
@@ -43,19 +42,68 @@ function addToList(days) {
             items = [];
         }
         items.push({ name, link, price, image, timeStamp, days });
-        console.log("newItems", items)
-        browser.storage.sync.set({ items }).then(closePopup);
+        browser.storage.sync.set({ items }).then(renderModalSuccess);
     }, onError);
 }
 
-const modalContainer = setupPopup();
+const [modalContainer, modal] = setupPopup();
 
 function openPopup() {
+    renderModalRemindMe();
     modalContainer.style.display = "initial";
 }
 
 function closePopup() {
     modalContainer.style.display = "none";
+}
+
+function renderModalRemindMe() {
+    modal.innerHTML = '';
+    const askMeAgainLabel = document.createElement("p");
+    askMeAgainLabel.innerText = "Postpone this product...";
+    modal.appendChild(askMeAgainLabel);
+
+    const askMeAgainButtons = document.createElement("div");
+    askMeAgainButtons.style.display = "inline-block";
+    modal.appendChild(askMeAgainButtons);
+
+    const addAskMeAgain = (label, handler) => {
+        const askMeAgainBtn = document.createElement("button");
+        askMeAgainBtn.innerText = label;
+        askMeAgainBtn.addEventListener("click", handler);
+        askMeAgainBtn.style.marginRight = "5px";
+        askMeAgainButtons.appendChild(askMeAgainBtn);
+    }
+
+    addAskMeAgain("until tomorrow", () => addToList(1));
+    addAskMeAgain("for 3 days", () => addToList(3));
+    addAskMeAgain("for a week", () => addToList(7));
+    addAskMeAgain("for a month", () => addToList(30));
+    addAskMeAgain("forever", () => closePopup());
+}
+
+function renderModalSuccess() {
+    modal.innerHTML = '';
+    const successLabel = document.createElement("p");
+    successLabel.innerText = "Purchase postponed. Thank you for being conscious about your purchases!"
+    successLabel.style.color = "green";
+    modal.appendChild(successLabel);
+
+    const buttons = document.createElement("div");
+    buttons.style.display = "inline-block";
+    modal.appendChild(buttons);
+
+    const successBtn1 = document.createElement("button");
+    successBtn1.innerText = "Continue shopping";
+    successBtn1.addEventListener("click", closePopup);
+    successBtn1.style.marginRight = "5px";
+    buttons.appendChild(successBtn1);
+
+    const successBtn2 = document.createElement("button");
+    successBtn2.innerText = "Show all postponed purchases";
+    successBtn2.addEventListener("click", event => browser.runtime.openOptionsPage());
+    successBtn2.style.marginRight = "5px";
+    buttons.appendChild(successBtn2);
 }
 
 function setupPopup() {
@@ -78,38 +126,15 @@ function setupPopup() {
 
     const modal = document.createElement("div");
     modal.style.maxWidth = "500px";
-    modal.style.height = "200px";
     modal.style.backgroundColor = "#dcdcdc";
-    modal.style.margin = "30px auto";
+    modal.style.margin = "50px auto";
     modal.style.padding = "10px";
     modal.style.borderRadius = "5px";
     modalContainer.appendChild(modal);
 
 
-    const askMeAgainLabel = document.createElement("p");
-    askMeAgainLabel.innerText = "Postpone this product...";
-    modal.appendChild(askMeAgainLabel);
-
-    const askMeAgainButtons = document.createElement("div");
-    askMeAgainButtons.style.display = "inline-block";
-    modal.appendChild(askMeAgainButtons);
-
-    const addAskMeAgain = (label, days) => {
-        const askMeAgainBtn = document.createElement("button");
-        askMeAgainBtn.innerText = label;
-        askMeAgainBtn.addEventListener("click", () => addToList(days));
-        askMeAgainBtn.style.marginRight = "5px";
-        askMeAgainButtons.appendChild(askMeAgainBtn);
-    }
-
-    addAskMeAgain("until tomorrow", () => addToList(1));
-    addAskMeAgain("for 3 days", () => addToList(3));
-    addAskMeAgain("for a week", () => addToList(7));
-    addAskMeAgain("for a month", () => addToList(30));
-    addAskMeAgain("forever", () => closePopup());
 
     body.appendChild(modalContainer);
-    return modalContainer;
+    return [modalContainer, modal];
 }
-
 
