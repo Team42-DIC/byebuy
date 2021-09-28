@@ -19,13 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemDiv = document.createElement("div");
 
             const itemHeaderDiv = document.createElement("div");
-            
+            itemHeaderDiv.className += "itemHeader";
+
             const itemName = document.createElement("h2")
             itemName.innerHTML = result.items[item].name + " (" + new Date(result.items[item].timestamp).toLocaleDateString() + ")";
             itemHeaderDiv.appendChild(itemName);
 
-            const itemDelete = document.createElement("button")
-            itemDelete.innerHTML = "Delete"
+            const itemDelete = document.createElement("input")
+            itemDelete.type = "image";
+            itemDelete.src = "icons/delete.png";
+            itemDelete.width = 32;
             itemDelete.addEventListener("click", () => deleteItem(result.items[item].timestamp));
             itemHeaderDiv.appendChild(itemDelete)
 
