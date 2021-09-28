@@ -1,3 +1,30 @@
+function relativeTime(date) {
+    // Make a fuzzy time
+    const delta = Math.round((+new Date - date) / 1000);
+
+    const minute = 60,
+        hour = minute * 60,
+        day = hour * 24,
+        week = day * 7;
+
+    if (delta < 30) {
+        return 'just then';
+    } else if (delta < minute) {
+        return delta + ' seconds ago';
+    } else if (delta < 2 * minute) {
+        return 'a minute ago'
+    } else if (delta < hour) {
+        return Math.floor(delta / minute) + ' minutes ago';
+    } else if (Math.floor(delta / hour) == 1) {
+        return '1 hour ago.'
+    } else if (delta < day) {
+        return Math.floor(delta / hour) + ' hours ago';
+    } else if (delta < day * 2) {
+        return 'yesterday';
+    } else {
+        return Math.floor(delta / day) + ' days ago';
+    }
+}
 function deleteItem(timestamp) {
     browser.storage.sync.get("items").then(result => {
         const newItems = [];
@@ -13,6 +40,9 @@ function deleteItem(timestamp) {
 document.addEventListener("DOMContentLoaded", () => {
     browser.storage.sync.get("items").then(result => {
         const itemRoot = document.querySelector('#itemRoot')
+        if (result.items.length === 0) {
+            itemRoot.innerHTML = "<p>No items have been added yet. When you postpone a purchase on Amazon, it will appear here.</p>";
+        }
         for (const item in result.items) {
             console.log("item", result.items[item])
             
@@ -22,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             itemHeaderDiv.className += "itemHeader";
 
             const itemName = document.createElement("h2")
-            itemName.innerHTML = result.items[item].name + " (" + new Date(result.items[item].timeStamp).toLocaleDateString() + ")";
+            itemName.innerHTML = result.items[item].name + " (" + relativeTime(new Date(result.items[item].timeStamp)) + ")";
             itemHeaderDiv.appendChild(itemName);
 
             const itemDelete = document.createElement("input")
