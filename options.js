@@ -8,7 +8,7 @@ function relativeTime(date) {
         week = day * 7;
 
     if (delta < 30) {
-        return 'just then';
+        return 'just now';
     } else if (delta < minute) {
         return delta + ' seconds ago';
     } else if (delta < 2 * minute) {
