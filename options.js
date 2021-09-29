@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
         renderStatistics(result);
 
         const itemRoot = document.querySelector('#itemRoot')
-        if (result.items.length === 0) {
+        if (!result.items || result.items.length === 0) {
             itemRoot.innerHTML = "<p class='text-center'>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";
             return;
         }
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
             buyDiv.innerText = "Lost interest";
             buttons.appendChild(buyDiv);
             itemDiv.appendChild(buttons);
-            
+
 
             if (result.items[item].lostInterest) {
                 lostInterestRoot.appendChild(itemDiv)
