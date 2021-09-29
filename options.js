@@ -57,12 +57,7 @@ function relativeTimeLeft(date) {
 
 function deleteItem(timestamp) {
     browser.storage.local.get("items").then(result => {
-        const newItems = [];
-        for (const item in result.items) {
-            if (result.items[item].timeStamp !== timestamp) {
-                newItems.push(result.items[item]);
-            }
-        }
+        const newItems = result.items.filter(item => item.timeStamp !== timestamp);
         browser.storage.local.set({items: newItems}).then(() => location.reload());
     });
 }
@@ -71,16 +66,16 @@ function lostInterest(timestamp) {
     browser.storage.local.get(["items", "savedMoney", "savedCO2"]).then(result => {
         let savedMoney = result.savedMoney || 0;
         const newItems = [];
-        for (const item in result.items) {
-            if (timestamp === result.items[item].timeStamp) {
-                newItems.push({lostInterest: true, ...result.items[item]})
-                const euros = parseInt(result.items[item].price.split(" ")[0])
-                const cents = parseInt(result.items[item].price.split(" ")[0].split(",")[1])
+        result.items.forEach(item => {
+            if (timestamp === item.timeStamp) {
+                newItems.push({lostInterest: true, ...item})
+                const euros = parseInt(item.price.split(" ")[0])
+                const cents = parseInt(item.price.split(" ")[0].split(",")[1])
                 savedMoney += euros * 100 + cents;
             } else {
-                newItems.push(result.items[item]);
+                newItems.push(item);
             }
-        }
+        })
         browser.storage.local.set({
             items: newItems,
             savedMoney,
@@ -131,31 +126,31 @@ document.addEventListener("DOMContentLoaded", () => {
         const lostInterestRoot = document.querySelector('#lostInterest')
         const notPurchasedRoot = document.querySelector('#notPurchased')
         const postPonedItems = document.querySelector('#sucessfullyPostponed')
-        for (const item in result.items) {
+        result.items.forEach(item => {
             const itemDiv = document.createElement("div");
 
             const itemName = document.createElement("h2");
             const itemLink = document.createElement("a");
-            itemLink.href = result.items[item].link;
-            itemLink.innerText = result.items[item].name;
+            itemLink.href = item.link;
+            itemLink.innerText = item.name;
             itemLink.target = "_blank";
             itemName.appendChild(itemLink);
             itemDiv.appendChild(itemName);
 
             const itemImage = document.createElement("img");
-            itemImage.src = result.items[item].image;
+            itemImage.src = item.image;
             itemDiv.appendChild(itemImage);
             const itemPrice = document.createElement("span");
-            itemPrice.innerText = result.items[item].price;
+            itemPrice.innerText = item.price;
             itemPrice.className += "price";
             itemDiv.appendChild(itemPrice);
             const itemTime = document.createElement("span");
-            const alertDate = new Date(result.items[item].timeStamp)
-            alertDate.setDate(alertDate.getDate() + result.items[item].days)
-            if (result.items[item].lostInterest) {
-                itemTime.innerText = "Added " + relativeTime(result.items[item].timeStamp) + ', ' + relativeTimeLeft(alertDate);
+            const alertDate = new Date(item.timeStamp)
+            alertDate.setDate(alertDate.getDate() + item.days)
+            if (!item.lostInterest) {
+                itemTime.innerText = "Added " + relativeTime(item.timeStamp) + ', ' + relativeTimeLeft(alertDate);
             } else {
-                itemTime.innerText = "Added " + relativeTime(result.items[item].timeStamp);
+                itemTime.innerText = "Added " + relativeTime(item.timeStamp);
             }
             itemTime.className += "time";
             itemDiv.appendChild(itemTime);
@@ -165,9 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const deleteDiv = document.createElement("div");
             deleteDiv.className += "tooltip";
             deleteDiv.id = "delete";
-            deleteDiv.addEventListener("click", () => deleteItem(result.items[item].timeStamp));
+            deleteDiv.addEventListener("click", () => deleteItem(item.timeStamp));
             deleteDiv.innerText = "Item was bought";
-            if (result.items[item].lostInterest) {
+            if (item.lostInterest) {
                 deleteDiv.innerText = "Delete";
             }
             buttons.appendChild(deleteDiv);
@@ -175,20 +170,20 @@ document.addEventListener("DOMContentLoaded", () => {
             const buyDiv = document.createElement("div");
             buyDiv.className += "tooltip";
             buyDiv.id = "buy";
-            buyDiv.addEventListener("click", () => lostInterest(result.items[item].timeStamp));
+            buyDiv.addEventListener("click", () => lostInterest(item.timeStamp));
             buyDiv.innerText = "Lost interest";
             buttons.appendChild(buyDiv);
             itemDiv.appendChild(buttons);
 
 
-            if (result.items[item].lostInterest) {
+            if (item.lostInterest) {
                 lostInterestRoot.appendChild(itemDiv)
             } else if (alertDate < new Date()) {
                 postPonedItems.appendChild(itemDiv);
             } else {
                 notPurchasedRoot.appendChild(itemDiv)
             }
-        }
+        });
         if (!lostInterestRoot.hasChildNodes()) {
             lostInterestRoot.parentNode.style.display = "none";
         }
