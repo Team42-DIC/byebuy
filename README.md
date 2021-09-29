@@ -8,10 +8,14 @@ entwickelt.
 
 ### Installation des Add-Ons
 
-Wir empfehlen für die Nutzung dieses Add-Ons den Firefox-Browser, da wir nur hier Usability-Tests durchgeführt haben.
-Wir konnten die Extension bis jetzt noch nicht veröffentlichen, da hierfür ein Überprüfungsprozess durch Mozilla nötig
-ist, der innerhalb von 24h nicht abgeschlossen werden konnte. Das Add-On kann aber trotzdem einfach ausprobiert werden.
-Dazu sind folgende Schritte nötig:
+Wir haben das Add-On zunächst nur für den Firefox-Browser getestet.
+
+1. Lade das Addon [hier](buybye-1.0-fx.xpi) herunter.
+2. Gib `about:addons` und drücke auf das Zahnrad.
+3. Klicke auf `Install Add-On from file` und wähle die heruntergeladene Datei aus.
+4. Drücke oben links auf "erlauben".
+
+### Entwicklung
 
 1. Clone dieses Repository
 2. Öffne [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox) im Firefox-Browser
