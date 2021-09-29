@@ -12,11 +12,10 @@ Hause herum oder werden zurückgeschickt und womöglich nach der Retour vom Onli
 weder den Käufern noch der Umwelt.
 
 Es ist schwer, das ausgestoßene CO2, das durch Impulskäufe entsteht, genau zu beziffern. Aber eine große Menge an (
-Fehl-)Käufen führt natürlich zu hoher Umweltbelastung. Als Orientierung: 2018 wurden in Deutschland 4% der Retouren
-vernichtet [1]. Laut [2] werden jeden Tag 800.000 Pakete als Retour zurückgeschickt, was etwa 400 Tonnen CO2 verursacht.
-Retouren richten Umweltschäden an, die besonders unnötig sind, wenn bedacht wird, dass eine Vernichtung der Produkte
-bedeutet, dass ihre Herstellungs- und Transportkosten CO2-Emmisionen verursacht haben, ohne dass das Produkt je benutzt
-wurde.
+Fehl-)Käufen führt natürlich zu hoher Umweltbelastung. Als Orientierung: Laut [1] werden allein bei Bekleidungskäufen
+jeden Tag 800.000 Pakete als Retour zurückgeschickt, womit nur durch die Transportkosten etwa 400 Tonnen CO2 verursacht
+werden. Weiterhin wurden 2018 in Deutschland 4% der Retouren vernichtet [2]. Eine Produktvernichtung bedeutet, dass der
+oft hohe CO2-Ausstoß für die Herstellung völlig unnötig war, da die Produkte nie benutzt wurden.
 
 ## Unsere Lösung
 
@@ -30,9 +29,10 @@ in Deutschland und der Welt dominiert [3]. Weitere Anbieter für Internetshoppin
 von uns zum Add-On hinzugefügt werden.
 
 Wir belohnen die Nutzung unserer Software, indem wir Käufern im Internet sichtbar machen, welche Ressourcen (CO2-Ausstoß
-und finanzielle Kosten) durch ein bewussteres Verhalten eingespart wurden. Somit wird aktiven Nutzern vor Augen geführt,
-wie sehr es sich lohnen kann, über Kaufentscheidungen ein paar Nächte zu schlafen. Unsere Lösung wirft ein Licht auf die
-Konsequenzen eines Internetkaufs, die ansonsten oft unbemerkt bleiben.
+und finanzielle Kosten) durch ein bewussteres Verhalten eingespart wurden. Wir rechnen zunächst nur mit den gesparten
+CO2-Emmissionen für den Transport (500g pro Sendung [4]), da die weitere CO2-Berechnung stark produktabhängig ist. Somit
+wird aktiven Nutzern vor Augen geführt, wie sehr es sich lohnen kann, über Kaufentscheidungen ein paar Nächte zu
+schlafen. Unsere Lösung wirft ein Licht auf die Konsequenzen eines Internetkaufs, die ansonsten oft unbemerkt bleiben.
 
 Wir erhoffen uns, dass unser Add-On breitflächige Nutzung findet. Wenn viele einen kleinen Beitrag leisten, indem sie
 weniger unnötige Internetbestellungen aufgeben, stehen deutliche CO2-Einsparungen in Aussicht.
@@ -73,6 +73,7 @@ Add-Ons ist also immens.
 
 ## Quellen
 
-1. https://www.tagesspiegel.de/wirtschaft/gesetzesaenderung-zu-recycling-warum-die-vernichtung-von-retouren-weiter-nicht-verboten-ist/25539344.html
-2. https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/nachhaltigkeit/ist-onlinehandel-gut-fuer-die-umwelt-es-spricht-viel-dagegen-26661
+1. https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/nachhaltigkeit/ist-onlinehandel-gut-fuer-die-umwelt-es-spricht-viel-dagegen-26661
+2. https://www.tagesspiegel.de/wirtschaft/gesetzesaenderung-zu-recycling-warum-die-vernichtung-von-retouren-weiter-nicht-verboten-ist/25539344.html
 3. https://www.handelsdaten.de/e-commerce/ranking-top-einzelhaendler-weltweit-nach-e-commerce-umsatz
+4. https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616
