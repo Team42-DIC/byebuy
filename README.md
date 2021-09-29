@@ -10,7 +10,7 @@ entwickelt.
 
 Wir haben das Add-On zunächst nur für den Firefox-Browser getestet.
 
-1. Lade das Addon [hier](buybye-1.0-fx.xpi) herunter.
+1. Lade das Addon [hier](byebuy-1.0-fx.xpi) herunter.
 2. Gib `about:addons` und drücke auf das Zahnrad.
 3. Klicke auf `Install Add-On from file` und wähle die heruntergeladene Datei aus.
 4. Drücke oben links auf "erlauben".
