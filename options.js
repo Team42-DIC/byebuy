@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (result.items[item].lostInterest) {
                 purchasedRoot.appendChild(itemDiv)
-            } else if (alertDate>new Date()) {
+            } else if (alertDate<new Date()) {
                 postPonedItems.appendChild(itemDiv);
             } else {
                 notPurchasedRoot.appendChild(itemDiv)
