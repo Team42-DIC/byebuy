@@ -1,6 +1,6 @@
-# Bye, Buy!
+# ByeBuy
 
-"Bye, Buy!" ist ein Add-On, dass Nutzer von Internetshopping-Plattformen dazu anhält, bewusstere Kaufentscheidungen zu
+ByeBuy ist ein Add-On, dass Nutzer von Internetshopping-Plattformen dazu anhält, bewusstere Kaufentscheidungen zu
 treffen. Es wurde im Rahmen der Digital Innovation Challenge 2021 (#DIC2021) entwickelt.
 
 ## Setup
@@ -44,7 +44,7 @@ oft hohe CO2-Ausstoß für die Herstellung völlig unnötig war, da die Produkte
 ## Unsere Lösung
 
 Um dieses klimaschädliche Verhalten zu reduzieren, wollen wir den Nutzern dabei helfen, bewusster Kaufentscheidungen zu
-treffen. Dazu haben wir eine Browser-Erweiterung mit dem Namen “Bye, Buy!” entwickelt. Dieses Add-On bietet beim
+treffen. Dazu haben wir eine Browser-Erweiterung mit dem Namen ByeBuy entwickelt. Dieses Add-On bietet beim
 Onlineshopping die Möglichkeit, den Kauf von Produkten einige Zeit in die Zukunft zu verlegen. Statt “Kaufe jetzt” gibt
 es also auch einen Button für “Kaufe später”.
 
@@ -70,7 +70,7 @@ Kaufentscheidungen der Konsumenten vereinbar sein muss.
 ## Die Zielgruppe
 
 Unser Angebot richtet sich vor allem an um Nachhaltigkeit bemühte Menschen und Vielkäufer mit schlechtem Gewissen. ;)
-Aber auch wer mehr um den eigenen Geldbeutel besorgt ist als um die Umwelt, kann von “Bye, Buy!” profitieren, indem
+Aber auch wer mehr um den eigenen Geldbeutel besorgt ist als um die Umwelt, kann von ByeBuy profitieren, indem
 unnötige Ausgaben vermieden werden.
 
 In unserer schnelllebigen Welt haben wir weitgehend verlernt, zu warten. Menschen sind es gewohnt, alles Erdenkliche
