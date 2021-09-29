@@ -38,20 +38,33 @@ function deleteItem(timestamp) {
 }
 
 function setPurchased(timestamp) {
-    browser.storage.local.get("items").then(result => {
+    browser.storage.local.get(["items", "savedMoney"]).then(result => {
+        let savedMoney = result.savedMoney || 0;
         const newItems = [];
         for (const item in result.items) {
             if (timestamp === result.items[item].timeStamp) {
                 newItems.push({purchased: true, ...result.items[item]})
+                const euros = parseInt(result.items[item].price.split(" ")[0])
+                const cents = parseInt(result.items[item].price.split(" ")[0].split(",")[1])
+                savedMoney += euros * 100 + cents;
             } else {
                 newItems.push(result.items[item]);
             }
         }
-        browser.storage.local.set({items: newItems}).then(() => location.reload());
+        browser.storage.local.set({items: newItems, savedMoney}).then(() => location.reload());
     });
 }
 document.addEventListener("DOMContentLoaded", () => {
-    browser.storage.local.get("items").then(result => {
+    browser.storage.local.get(["items", "savedMoney"]).then(result => {
+        const statisticsRoot = document.querySelector('#statisticsRoot');
+        const savedMoneyDiv = document.createElement("div")
+        const euros = Math.floor(result.savedMoney/100);
+        const cents = result.savedMoney - euros * 100;
+        savedMoneyDiv.innerText = euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €";
+        savedMoneyDiv.className += "price";
+        statisticsRoot.appendChild(savedMoneyDiv);
+
+
         const itemRoot = document.querySelector('#itemRoot')
         if (result.items.length === 0) {
             itemRoot.innerHTML = "<p>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";

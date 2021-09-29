@@ -98,7 +98,7 @@ function renderModalRemindMe() {
 function renderModalSuccess() {
     modal.innerHTML = '';
     const successLabel = document.createElement("p");
-    successLabel.innerHTML = '<p>Purchase postponed. <p> Not buying this product would save 500g Co2 for the transport alone! [<a href="https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616"> source </a>] <p> Thank you for being conscious about the environment!';
+    successLabel.innerHTML = '<p>Purchase postponed. <p> Not buying this product would save 500g Co2 for the transport alone! <br>[<a href="https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616"> source </a>] <p> Thank you for being conscious about the environment!';
     successLabel.style.textAlign = "center";
     successLabel.style.color = "green";
     modal.appendChild(successLabel);
@@ -112,6 +112,12 @@ function renderModalSuccess() {
 
     const successBtn1 = newButton("Continue shopping", () => closePopup());
     buttons.appendChild(successBtn1);
+
+    const successLabel2 = document.createElement("p");
+    successLabel2.innerHTML = '<p>Click on the extension icon in the toolbar above to see all your postponed purchases.<p>';
+    successLabel2.style.textAlign = "center";
+    successLabel2.style.color = "black";
+    modal.appendChild(successLabel2);
     //const successBtn2 = newButton("I'm done with shopping", () => window.close());
     //buttons.appendChild(successBtn2);
     //const successBtn3 = newButton("Show all postponed purchases", () => null);
