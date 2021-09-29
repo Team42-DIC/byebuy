@@ -16,14 +16,7 @@ newNode.addEventListener("click", event => {
 newNode.addEventListener("mouseenter", () => newNode.style.backgroundColor = "#64e764");
 newNode.addEventListener("mouseleave", () => newNode.style.backgroundColor = "#90ee90");
 
-const nodes = document.querySelectorAll("#addToCart_feature_div")
-let cartButton = null
-nodes.forEach(node => {
-    if (node.childNodes.length == 9) {
-        cartButton = node
-    }
-    
-});
+const cartButton = document.getElementById('add-to-cart-button').parentNode.parentElement.parentNode.parentNode.parentNode;
 cartButton.parentNode.insertBefore(newNode, cartButton.nextSibling);
 
 function addToList(days) {
