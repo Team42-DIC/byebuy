@@ -25,6 +25,34 @@ function relativeTime(date) {
         return Math.floor(delta / day) + ' days ago';
     }
 }
+function relativeTimeLeft(date) {
+    const delta = Math.round((date - +new Date ) / 1000);
+
+    const minute = 60,
+        hour = minute * 60,
+        day = hour * 24,
+        week = day * 7;
+
+    if (delta < 30) {
+        return 'right now';
+    } else if (delta < minute) {
+        return delta + ' seconds to go';
+    } else if (delta < 2 * minute) {
+        return 'a minute ago'
+    } else if (delta < hour) {
+        return Math.floor(delta / minute) + ' minutes left';
+    } else if (Math.floor(delta / hour) == 1) {
+        return '1 hour ago.'
+    } else if (delta < day) {
+        return Math.floor(delta / hour) + ' hours remaining';
+    } else if (delta < day * 2) {
+        return 'tomorrow';
+    } else if (delta < day * 7){
+        return Math.floor(delta / day) + ' days left';
+    } else {
+        return Math.floor(delta / week) + ' weeks left';
+    }
+}
 function deleteItem(timestamp) {
     browser.storage.local.get("items").then(result => {
         const newItems = [];
@@ -120,7 +148,9 @@ document.addEventListener("DOMContentLoaded", () => {
             itemPrice.className += "price";
             itemDiv.appendChild(itemPrice);
             const itemTime = document.createElement("span");
-            itemTime.innerText = relativeTime(result.items[item].timeStamp);
+            const alertDate = new Date(result.items[item].timeStamp)
+            alertDate.setDate(alertDate.getDate() + result.items[item].days)
+            itemTime.innerText = "Added " + relativeTime(result.items[item].timeStamp) + ', ' + relativeTimeLeft(alertDate);
             itemTime.className += "time";
             itemDiv.appendChild(itemTime);
             const buttons = document.createElement("div");
@@ -144,8 +174,6 @@ document.addEventListener("DOMContentLoaded", () => {
             buttons.appendChild(buyDiv);
             itemDiv.appendChild(buttons);
             
-            const alertDate = new Date(result.items[item].timeStamp)
-            alertDate.setDate(alertDate.getDate() + result.items[item].days)
 
             if (result.items[item].lostInterest) {
                 lostInterestRoot.appendChild(itemDiv)
