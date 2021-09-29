@@ -48,7 +48,7 @@ function setPurchased(timestamp) {
                 newItems.push(result.items[item]);
             }
         }
-        browser.storage.sync.set({items: newItems}).then(() => location.reload());
+        browser.storage.local.set({items: newItems}).then(() => location.reload());
     });
 }
 document.addEventListener("DOMContentLoaded", () => {
