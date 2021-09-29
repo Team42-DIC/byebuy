@@ -55,14 +55,35 @@ function setPurchased(timestamp) {
     });
 }
 document.addEventListener("DOMContentLoaded", () => {
-    browser.storage.local.get(["items", "savedMoney"]).then(result => {
+    browser.storage.local.get(["items", "savedMoney", "savedCO2"]).then(result => {
         const statisticsRoot = document.querySelector('#statisticsRoot');
-        const savedMoneyDiv = document.createElement("div")
-        const euros = Math.floor(result.savedMoney/100);
-        const cents = result.savedMoney - euros * 100;
-        savedMoneyDiv.innerText = euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €";
-        savedMoneyDiv.className += "price";
-        statisticsRoot.appendChild(savedMoneyDiv);
+
+        function createStatistic(statistic, label) {
+            const statisticContainer = document.createElement("div")
+            const savedMoneyPrice = document.createElement("div")
+            savedMoneyPrice.innerText = statistic;
+            savedMoneyPrice.className += "price xxl";
+            statisticContainer.appendChild(savedMoneyPrice);
+
+            const statisticLabel = document.createElement("span")
+            statisticLabel.innerHTML = label;
+            statisticLabel.classNames += "xxl";
+            statisticContainer.appendChild(statisticLabel);
+            statisticsRoot.appendChild(statisticContainer);
+        }
+
+        let euros;
+        let cents;
+        if (!result.savedMoney) {
+            euros = 0;
+            cents = 0;
+        } else {
+            euros = Math.floor(result.savedMoney/100);
+            cents = result.savedMoney - euros * 100;
+        }
+        const savedMoneyStatistic = euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €";
+        createStatistic(euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €", "of your hard-earned money")
+        createStatistic((result.savedCO2 || 0) + " g", "of CO2 in transport costs")
 
 
         const itemRoot = document.querySelector('#itemRoot')
