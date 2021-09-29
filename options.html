@@ -69,8 +69,9 @@ h3 {
 }
 
 #itemRoot > div  > div > div{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
   border-radius: 10px;
-  border: darkgray solid 1px;
   padding: 15px;
   display: grid;
   column-gap: 5px;
@@ -83,6 +84,9 @@ h3 {
   "image  "
   "rest "
   "buttons ";
+}
+#itemRoot > div  > div > div:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 #itemRoot > div > div > div > img {
   grid-area: image;
