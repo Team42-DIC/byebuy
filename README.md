@@ -1,7 +1,8 @@
 # ByeBuy
 
 ByeBuy ist ein Add-On, dass Nutzer von Internetshopping-Plattformen dazu anhält, bewusstere Kaufentscheidungen zu
-treffen. Es wurde im Rahmen der Digital Innovation Challenge 2021 (#DIC2021) von Studierenden am Hasso-Plattner-Institut entwickelt.
+treffen. Es wurde im Rahmen der Digital Innovation Challenge 2021 (#DIC2021) von Studierenden am Hasso-Plattner-Institut
+entwickelt.
 
 ## Setup
 
@@ -16,7 +17,8 @@ Dazu sind folgende Schritte nötig:
 2. Öffne [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox) im Firefox-Browser
 3. Klicke auf `Load Temporaray Add-On...` und wähle eine beliebige Datei im Repository-Ordner aus
 4. Um den Effekt von Code-Änderungen auszuprobieren, kann das Add-On mit `Reload` einfach aktualisiert werden
-5. Nun kann das Add-On auf Amazon-Webseiten genutzt werden. Gespeicherte Items kann man ansehen indem man auf das Icon der Extension klickt.
+5. Nun kann das Add-On auf Amazon-Webseiten genutzt werden. Gespeicherte Items kann man ansehen indem man auf das Icon
+   der Extension klickt.
 
 ### Kurzanleitung
 
@@ -36,25 +38,25 @@ Hause herum oder werden zurückgeschickt und womöglich nach der Retour vom Onli
 weder den Käufern noch der Umwelt.
 
 Es ist schwer, das ausgestoßene CO2, das durch Impulskäufe entsteht, genau zu beziffern. Aber eine große Menge an (
-Fehl-)Käufen führt natürlich zu hoher Umweltbelastung. Als Orientierung: Laut [1] werden allein bei Bekleidungskäufen
-jeden Tag 800.000 Pakete als Retour zurückgeschickt, womit nur durch die Transportkosten etwa 400 Tonnen CO2 verursacht
-werden. Weiterhin wurden 2018 in Deutschland 4% der Retouren vernichtet [2]. Eine Produktvernichtung bedeutet, dass der
-oft hohe CO2-Ausstoß für die Herstellung völlig unnötig war, da die Produkte nie benutzt wurden.
+Fehl-)Käufen führt natürlich zu hoher Umweltbelastung. Als Orientierung: Im Jahr 2019 wurden allein in Deutschland 301
+Millionen Retouren verzeichnet [1]. Damit gab es nur für den Transport einen CO2-Ausstoß von 150.000 Tonnen [2].
+Weiterhin haben Studien ergeben, dass 2018 in Deutschland 4% der Retouren vernichtet wurden [3]. Eine Produktvernichtung
+bedeutet, dass der oft hohe CO2-Ausstoß für die Herstellung völlig unnötig war, da die Produkte nie benutzt wurden.
 
 ## Unsere Lösung
 
-Um dieses klimaschädliche Verhalten zu reduzieren, wollen wir den Nutzern dabei helfen, bewusster Kaufentscheidungen zu
+Um dieses klimaschädliche Verhalten zu reduzieren, wollen wir den Nutzern dabei helfen, bewusste Kaufentscheidungen zu
 treffen. Dazu haben wir eine Browser-Erweiterung mit dem Namen ByeBuy entwickelt. Dieses Add-On bietet beim
-Onlineshopping die Möglichkeit, den Kauf von Produkten einige Zeit in die Zukunft zu verlegen. Statt “Kaufe jetzt” gibt
-es also auch einen Button für “Kaufe später”.
+Onlineshopping die Möglichkeit, den Kauf von Produkten einige Zeit in die Zukunft zu verlegen. Statt `Buy Now` gibt
+es also auch einen Button für `Buy Later`.
 
 Unsere funktionsfähige Lösung fokussiert sich zunächst auf den Onlineversandhändler Amazon, der den Bereich E-Commerce
-in Deutschland und der Welt dominiert [3]. Weitere Anbieter für Internetshopping können in Zukunft mit geringem Aufwand
+in Deutschland und der Welt dominiert [4]. Weitere Anbieter für Internetshopping können in Zukunft mit geringem Aufwand
 von uns zum Add-On hinzugefügt werden.
 
 Wir belohnen die Nutzung unserer Software, indem wir Käufern im Internet sichtbar machen, welche Ressourcen (CO2-Ausstoß
 und finanzielle Kosten) durch ein bewussteres Verhalten eingespart wurden. Wir rechnen zunächst nur mit den gesparten
-CO2-Emmissionen für den Transport (500g pro Sendung [4]), da die weitere CO2-Berechnung stark produktabhängig ist. Somit
+CO2-Emmissionen für den Transport (500g pro Sendung [2]), da die weitere CO2-Berechnung stark produktabhängig ist. Somit
 wird aktiven Nutzern vor Augen geführt, wie sehr es sich lohnen kann, über Kaufentscheidungen ein paar Nächte zu
 schlafen. Unsere Lösung wirft ein Licht auf die Konsequenzen eines Internetkaufs, die ansonsten oft unbemerkt bleiben.
 
@@ -97,7 +99,7 @@ Add-Ons ist also immens.
 
 ## Quellen
 
-1. [https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/nachhaltigkeit/ist-onlinehandel-gut-fuer-die-umwelt-es-spricht-viel-dagegen-26661](https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/nachhaltigkeit/ist-onlinehandel-gut-fuer-die-umwelt-es-spricht-viel-dagegen-26661)
-2. [https://www.tagesspiegel.de/wirtschaft/gesetzesaenderung-zu-recycling-warum-die-vernichtung-von-retouren-weiter-nicht-verboten-ist/25539344.html](https://www.tagesspiegel.de/wirtschaft/gesetzesaenderung-zu-recycling-warum-die-vernichtung-von-retouren-weiter-nicht-verboten-ist/25539344.html)
-3. [https://www.handelsdaten.de/e-commerce/ranking-top-einzelhaendler-weltweit-nach-e-commerce-umsatz](https://www.handelsdaten.de/e-commerce/ranking-top-einzelhaendler-weltweit-nach-e-commerce-umsatz)
-4. [https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616](https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616)
+1. [Universität Bamberg, Forschungsgruppe Retouren](http://www.retourenforschung.de/info-retournierverhalten-waehrend-der-covid-19-pandemie-untersucht.html)
+2. [Süddeutsche Zeitung: Das macht 500 Gramm CO2](https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616)
+3. [Tagesspiegel: Warum die Vernichtung von Retouren weiter nicht verboten ist](https://www.tagesspiegel.de/wirtschaft/gesetzesaenderung-zu-recycling-warum-die-vernichtung-von-retouren-weiter-nicht-verboten-ist/25539344.html)
+4. [Handelsdaten: Ranking der größten Einzelhändler weltweit nach E-Commerce-Umsatz](https://www.handelsdaten.de/e-commerce/ranking-top-einzelhaendler-weltweit-nach-e-commerce-umsatz)
