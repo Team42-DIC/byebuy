@@ -1,5 +1,5 @@
+// adapted from https://stackoverflow.com/a/7641812
 function relativeTime(date) {
-    // Make a fuzzy time
     const delta = Math.round((+new Date - date) / 1000);
 
     const minute = 60,
