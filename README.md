@@ -1,32 +1,32 @@
 # ByeBuy
 
 ByeBuy ist ein Add-On, dass Nutzer von Internetshopping-Plattformen dazu anhält, bewusstere Kaufentscheidungen zu
-treffen. Es wurde im Rahmen der Digital Innovation Challenge 2021 (#DIC2021) entwickelt.
+treffen. Es wurde im Rahmen der Digital Innovation Challenge 2021 (#DIC2021) von Studierenden am Hasso-Plattner-Institut entwickelt.
 
 ## Setup
 
-### Benutzung des Add-Ons
+### Installation des Add-Ons
 
-Wir empfehlen für die Nutzung unsers Add-On den Firefox-Browser, da wir nur hier Usability-Tests durchgeführt haben. Das
-Add-On ist da und da zu finden (TODO).
+Wir empfehlen für die Nutzung dieses Add-Ons den Firefox-Browser, da wir nur hier Usability-Tests durchgeführt haben.
+Wir konnten die Extension bis jetzt noch nicht veröffentlichen, da hierfür ein Überprüfungsprozess durch Mozilla nötig
+ist, der innerhalb von 24h nicht abgeschlossen werden konnte. Das Add-On kann aber trotzdem einfach ausprobiert werden.
+Dazu sind folgende Schritte nötig:
 
-Auf Amazon-Produkt-Webseiten wird nun neben den Buttons "Add To Cart" und "Buy Now" auch ein grüner Button angezeigt,
+1. Clone dieses Repository
+2. Öffne [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox) im Firefox-Browser
+3. Klicke auf `Load Temporaray Add-On...` und wähle eine beliebige Datei im Repository-Ordner aus
+4. Um den Effekt von Code-Änderungen auszuprobieren, kann das Add-On mit `Reload` einfach aktualisiert werden
+5. Nun kann das Add-On auf Amazon-Webseiten genutzt werden. Gespeicherte Items kann man ansehen indem man auf das Icon der Extension klickt.
+
+### Kurzanleitung
+
+Auf Amazon-Produkt-Webseiten wird nun neben den Buttons `Add To Cart` und `Buy Now` auch ein grüner Button angezeigt,
 mit dem das Produkt um einige Tage "zurückgestellt" werden kann.
 
 Durch Klick auf das Add-On-Icon in der oberen Leiste des Browsers erfolgt eine Weiterleitung auf eine Web-Ansicht der
 zurückgestellten Produkte. Hier können Produkte auf zwei Weisen wieder entfernt werden: wenn sie doch gekauft wurden
 oder wenn sie nicht gekauft wurden. In letzterem Fall wird die Anzeige der gesparten Kosten und des CO2-Ausstoßes
 aktualisiert.
-
-### Entwicklung
-
-Um direkt den Code dieses Repositories als temporäres Add-On zu nutzen, sind folgende Schritte nötig:
-
-1. Clone dieses Repository
-2. Öffne "about:debugging#/runtime/this-firefox" im Firefox-Browser
-3. Klicke auf "Load Temporaray Add-On..." und wähle eine beliebige Datei im Repository-Ordner aus
-4. Um den Effekt von Code-Änderungen auszuprobieren, kann das Add-On mit "Reload" einfach aktualisiert werden
-5. Nun kann das Add-On auf Amazon-Webseiten genutzt werden
 
 ## Das Problem
 
@@ -70,8 +70,8 @@ Kaufentscheidungen der Konsumenten vereinbar sein muss.
 ## Die Zielgruppe
 
 Unser Angebot richtet sich vor allem an um Nachhaltigkeit bemühte Menschen und Vielkäufer mit schlechtem Gewissen. ;)
-Aber auch wer mehr um den eigenen Geldbeutel besorgt ist als um die Umwelt, kann von ByeBuy profitieren, indem
-unnötige Ausgaben vermieden werden.
+Aber auch wer mehr um den eigenen Geldbeutel besorgt ist als um die Umwelt, kann von ByeBuy profitieren, indem unnötige
+Ausgaben vermieden werden.
 
 In unserer schnelllebigen Welt haben wir weitgehend verlernt, zu warten. Menschen sind es gewohnt, alles Erdenkliche
 innerhalb kürzester Zeit geliefert bekommen zu können. Trotzdem sind wir optimistisch, dass wir viele Personen dazu
@@ -97,7 +97,7 @@ Add-Ons ist also immens.
 
 ## Quellen
 
-1. https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/nachhaltigkeit/ist-onlinehandel-gut-fuer-die-umwelt-es-spricht-viel-dagegen-26661
-2. https://www.tagesspiegel.de/wirtschaft/gesetzesaenderung-zu-recycling-warum-die-vernichtung-von-retouren-weiter-nicht-verboten-ist/25539344.html
-3. https://www.handelsdaten.de/e-commerce/ranking-top-einzelhaendler-weltweit-nach-e-commerce-umsatz
-4. https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616
+1. [https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/nachhaltigkeit/ist-onlinehandel-gut-fuer-die-umwelt-es-spricht-viel-dagegen-26661](https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/nachhaltigkeit/ist-onlinehandel-gut-fuer-die-umwelt-es-spricht-viel-dagegen-26661)
+2. [https://www.tagesspiegel.de/wirtschaft/gesetzesaenderung-zu-recycling-warum-die-vernichtung-von-retouren-weiter-nicht-verboten-ist/25539344.html](https://www.tagesspiegel.de/wirtschaft/gesetzesaenderung-zu-recycling-warum-die-vernichtung-von-retouren-weiter-nicht-verboten-ist/25539344.html)
+3. [https://www.handelsdaten.de/e-commerce/ranking-top-einzelhaendler-weltweit-nach-e-commerce-umsatz](https://www.handelsdaten.de/e-commerce/ranking-top-einzelhaendler-weltweit-nach-e-commerce-umsatz)
+4. [https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616](https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616)

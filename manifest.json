@@ -6,12 +6,34 @@
   "version": "1.0",
   "homepage_url": "https://github.com/Team42/byebuy",
   "icons": {
-    "48": "icons/border-48.png"
+    "48": "icons/logo.webp"
   },
 
   "content_scripts": [
     {
-      "matches": ["*://*.amazon.de/*", "*://*.amazon.com/*"],
+      "matches": [
+        "*://*.amazon.eg/*",
+        "*://*.amazon.com.br/*",
+        "*://*.amazon.ca/*",
+        "*://*.amazon.com.mx/*",
+        "*://*.amazon.com/*",
+        "*://*.amazon.cn/*",
+        "*://*.amazon.in/*",
+        "*://*.amazon.co.jp/*",
+        "*://*.amazon.sg/*",
+        "*://*.amazon.ae/*",
+        "*://*.amazon.sa/*",
+        "*://*.amazon.fr/*",
+        "*://*.amazon.de/*",
+        "*://*.amazon.it/*",
+        "*://*.amazon.nl/*",
+        "*://*.amazon.pl/*",
+        "*://*.amazon.es/*",
+        "*://*.amazon.se/*",
+        "*://*.amazon.com.tr/*",
+        "*://*.amazon.co.uk/*",
+        "*://*.amazon.com.au/*"
+      ],
       "js": ["buybye.js"]
     }
   ],
