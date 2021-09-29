@@ -25,8 +25,9 @@ function relativeTime(date) {
         return Math.floor(delta / day) + ' days ago';
     }
 }
+
 function relativeTimeLeft(date) {
-    const delta = Math.round((date - +new Date ) / 1000);
+    const delta = Math.round((date - +new Date) / 1000);
 
     const minute = 60,
         hour = minute * 60,
@@ -47,12 +48,13 @@ function relativeTimeLeft(date) {
         return Math.floor(delta / hour) + ' hours remaining';
     } else if (delta < day * 2) {
         return 'tomorrow';
-    } else if (delta < day * 7){
+    } else if (delta < day * 7) {
         return Math.floor(delta / day) + ' days left';
     } else {
         return Math.floor(delta / week) + ' weeks left';
     }
 }
+
 function deleteItem(timestamp) {
     browser.storage.local.get("items").then(result => {
         const newItems = [];
@@ -79,7 +81,11 @@ function lostInterest(timestamp) {
                 newItems.push(result.items[item]);
             }
         }
-        browser.storage.local.set({items: newItems, savedMoney, savedCO2: result.savedCO2 ? result.savedCO2+500 : 500}).then(() => location.reload());
+        browser.storage.local.set({
+            items: newItems,
+            savedMoney,
+            savedCO2: result.savedCO2 ? result.savedCO2 + 500 : 500
+        }).then(() => location.reload());
     });
 }
 
@@ -106,11 +112,11 @@ function renderStatistics(result) {
         euros = 0;
         cents = 0;
     } else {
-        euros = Math.floor(result.savedMoney/100);
+        euros = Math.floor(result.savedMoney / 100);
         cents = result.savedMoney - euros * 100;
     }
-    createStatistic(euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €", "of your hard-earned money")
-    createStatistic((result.savedCO2/1000 || 0) + " kg", "of CO2 in transport costs")
+    createStatistic(euros + "," + (('' + cents).length === 1 ? cents + "0" : cents) + " €", "of your hard-earned money")
+    createStatistic((result.savedCO2 / 1000 || 0) + " kg", "of CO2 in transport costs")
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -177,19 +183,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (result.items[item].lostInterest) {
                 lostInterestRoot.appendChild(itemDiv)
-            } else if (alertDate<new Date()) {
+            } else if (alertDate < new Date()) {
                 postPonedItems.appendChild(itemDiv);
             } else {
                 notPurchasedRoot.appendChild(itemDiv)
             }
         }
-        if (!lostInterestRoot.hasChildNodes()){
+        if (!lostInterestRoot.hasChildNodes()) {
             lostInterestRoot.parentNode.style.display = "none";
         }
-        if (!notPurchasedRoot.hasChildNodes() ) {
+        if (!notPurchasedRoot.hasChildNodes()) {
             notPurchasedRoot.parentNode.style.display = "none";
         }
-        if (!postPonedItems.hasChildNodes() ) {
+        if (!postPonedItems.hasChildNodes()) {
             postPonedItems.parentNode.style.display = "none";
         }
     });
