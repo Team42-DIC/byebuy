@@ -55,7 +55,7 @@ function lostInterest(timestamp) {
     });
 }
 
-function renderStatistics() {
+function renderStatistics(result) {
     const statisticsRoot = document.querySelector('#statisticsRoot');
 
     function createStatistic(statistic, label) {
@@ -88,12 +88,12 @@ function renderStatistics() {
 
 document.addEventListener("DOMContentLoaded", () => {
     browser.storage.local.get(["items", "savedMoney", "savedCO2"]).then(result => {
-        renderStatistics();
-
+        renderStatistics(result);
 
         const itemRoot = document.querySelector('#itemRoot')
         if (result.items.length === 0) {
             itemRoot.innerHTML = "<p class='text-center'>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";
+            return;
         }
         const lostInterestRoot = document.querySelector('#lostInterest')
         const notPurchasedRoot = document.querySelector('#notPurchased')
