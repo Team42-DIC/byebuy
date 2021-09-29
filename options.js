@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const postPonedItems = document.querySelector('#sucessfullyPostponed')
         for (const item in result.items) {
             const itemDiv = document.createElement("div");
-            if (result.items[item].purchased) {
-                itemDiv.className += "purchased";
-            }
+            // if (result.items[item].purchased) {
+            //     itemDiv.className += "purchased";
+            // }
 
             const itemName = document.createElement("h2");
             const itemLink = document.createElement("a");
