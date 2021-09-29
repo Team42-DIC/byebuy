@@ -113,12 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
             itemDiv.appendChild(itemName);
 
             const itemImage = document.createElement("img");
-            if (result.items[item].image) {
-                itemImage.src = result.items[item].image;
-            } else {
-                itemImage.src = "open-box.png";
-                itemImage.className += "greyed";
-            }
+            itemImage.src = result.items[item].image;
             itemDiv.appendChild(itemImage);
             const itemPrice = document.createElement("span");
             itemPrice.innerText = result.items[item].price;
