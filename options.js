@@ -33,7 +33,6 @@ function deleteItem(timestamp) {
                 newItems.push(result.items[item]);
             }
         }
-        console.log("newItems", newItems);
         browser.storage.local.set({items: newItems}).then(() => location.reload());
     });
 }
@@ -58,8 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
             itemRoot.innerHTML = "<p>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";
         }
         for (const item in result.items) {
-            console.log("item", result.items[item]);
-            
             const itemDiv = document.createElement("div");
             if (result.items[item].purchased) {
                 itemDiv.className += "purchased";
