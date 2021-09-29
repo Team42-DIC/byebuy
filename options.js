@@ -79,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const deleteDiv = document.createElement("div");
             deleteDiv.className += "tooltip";
             deleteDiv.id = "delete";
+            deleteDiv.addEventListener("click", () => deleteItem(result.items[item].timeStamp));
             const tooltip1 = document.createElement("span");
             tooltip1.className += "tooltiptext";
             tooltip1.innerText = "I bought this item";
@@ -86,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemDelete = document.createElement("input");
             itemDelete.type = "image";
             itemDelete.src = "icons/sad.png";
-            itemDelete.addEventListener("click", () => deleteItem(result.items[item].timeStamp));
             deleteDiv.appendChild(itemDelete);
             buttons.appendChild(deleteDiv);
 
