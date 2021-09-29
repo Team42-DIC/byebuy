@@ -26,7 +26,7 @@ function relativeTime(date) {
     }
 }
 function deleteItem(timestamp) {
-    browser.storage.sync.get("items").then(result => {
+    browser.storage.local.get("items").then(result => {
         const newItems = [];
         for (const item in result.items) {
             if (result.items[item].timeStamp !== timestamp) {
@@ -34,11 +34,11 @@ function deleteItem(timestamp) {
             }
         }
         console.log("newItems", newItems);
-        browser.storage.sync.set({items: newItems}).then(() => location.reload());
+        browser.storage.local.set({items: newItems}).then(() => location.reload());
     });
 }
 document.addEventListener("DOMContentLoaded", () => {
-    browser.storage.sync.get("items").then(result => {
+    browser.storage.local.get("items").then(result => {
         const itemRoot = document.querySelector('#itemRoot')
         if (result.items.length === 0) {
             itemRoot.innerHTML = "<p>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";
@@ -115,14 +115,14 @@ document.addEventListener("DOMContentLoaded", () => {
 //     const link = document.querySelector("#itemLink").value;
 //     const price = document.querySelector("#itemPrice").value;
 //     const image = document.querySelector("#itemImage").value;
-//     browser.storage.sync.get("items").then(result => {
+//     browser.storage.local.get("items").then(result => {
 //         let items = result.items;
 //         if (!items) {
 //             items = [];
 //         }
 //         items.push({name, link, price, image, timeStamp: Date.now()});
 //         console.log("newItems", items)
-//         browser.storage.sync.set({items});
+//         browser.storage.local.set({items});
 //         location.reload();
 //     });
 // });

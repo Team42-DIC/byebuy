@@ -21,7 +21,10 @@
     "open_in_tab": true
   },
 
-  "permissions": ["storage"],
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
 
   "browser_specific_settings": {
     "gecko": {

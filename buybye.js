@@ -36,13 +36,13 @@ function addToList(days) {
     price = price.innerText
     const image= document.getElementById("landingImage").src;
     const timeStamp = Date.now();
-    browser.storage.sync.get("items").then(result => {
+    browser.storage.local.get("items").then(result => {
         let items = result.items;
         if (!items) {
             items = [];
         }
         items.push({ name, link, price, image, timeStamp, days });
-        browser.storage.sync.set({ items }).then(renderModalSuccess);
+        browser.storage.local.set({ items }).then(renderModalSuccess);
     }, onError);
 }
 
