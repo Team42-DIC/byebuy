@@ -34,7 +34,7 @@
         "*://*.amazon.co.uk/*",
         "*://*.amazon.com.au/*"
       ],
-      "js": ["buybye.js"]
+      "js": ["byebuy.js"]
     }
   ],
 
