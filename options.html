@@ -49,7 +49,7 @@ a:hover {
 input {
   width: 32px;
 }
-#itemRoot {
+#purchased  {
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(470px, 2fr));
@@ -60,7 +60,11 @@ h3 {
   padding: 0;
 }
 
-#itemRoot > div {
+#itemRoot {
+  margin-bottom: 150px;
+}
+
+#itemRoot > div  > div > div{
   border-radius: 10px;
   border: darkgray solid 1px;
   padding: 15px;
@@ -76,13 +80,13 @@ h3 {
   "rest "
   "buttons ";
 }
-#itemRoot > div > img {
+#itemRoot > div > div > div > img {
   grid-area: image;
   max-width: 300px;
   max-height: 300px;
   justify-self: center;
 }
-#itemRoot > div > h2 {
+#itemRoot > div > div > div > h2 {
   grid-area: title;
 }
 .buttons {
@@ -163,6 +167,14 @@ h3 {
   visibility: visible;
   opacity: 1;
 }
+
+#purchased, #notPurchased, #sucessfullyPostponed  {
+  display: grid;
+  justify-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(470px, 2fr));
+  gap: 20px;
+}
+
 </style>
   </head>
 
@@ -172,9 +184,20 @@ h3 {
 
     <h1>Postponed purchases</h1>
 
-    <div id="itemRoot"></div>
-
+    <div id="itemRoot">
+      <div>
+        <h1>You've waited long enough</h1>
+        <div id="sucessfullyPostponed"></div>
+      </div>
+      <div>
+        <h1>You have to wait a bit longer</h1>
+        <div id="notPurchased"></div>
+      </div>
+      <div>
+        <h1>You don't want this anymore</h1>
+        <div id="purchased"></div>
+      </div>
+    </div>
     <script src="options.js"></script>
-
   </body>
 </html>
