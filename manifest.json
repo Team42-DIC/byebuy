@@ -6,7 +6,9 @@
   "version": "1.0",
   "homepage_url": "https://github.com/Team42/byebuy",
   "icons": {
-    "48": "icons/logo.webp"
+      "16": "icons/logo16.webp",
+      "32": "icons/logo32.webp",
+      "48": "icons/logo48.webp"
   },
 
   "content_scripts": [
@@ -60,8 +62,9 @@
 
   "browser_action": {
     "default_icon": {
-      "16": "icons/logo.webp",
-      "32": "icons/logo.webp"
+      "16": "icons/logo16.webp",
+      "32": "icons/logo32.webp",
+      "48": "icons/logo48.webp"
     }
   }
 
