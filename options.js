@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (result.items.length === 0) {
             itemRoot.innerHTML = "<p class='text-center'>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";
         }
-        const purchasedRoot = document.querySelector('#purchased')
+        const lostInterestRoot = document.querySelector('#lostInterest')
         const notPurchasedRoot = document.querySelector('#notPurchased')
         const postPonedItems = document.querySelector('#sucessfullyPostponed')
         for (const item in result.items) {
@@ -145,15 +145,15 @@ document.addEventListener("DOMContentLoaded", () => {
             alertDate.setDate(alertDate.getDate() + result.items[item].days)
 
             if (result.items[item].lostInterest) {
-                purchasedRoot.appendChild(itemDiv)
+                lostInterestRoot.appendChild(itemDiv)
             } else if (alertDate<new Date()) {
                 postPonedItems.appendChild(itemDiv);
             } else {
                 notPurchasedRoot.appendChild(itemDiv)
             }
         }
-        if (!purchasedRoot.hasChildNodes()){
-            purchasedRoot.parentNode.style.display = "none";
+        if (!lostInterestRoot.hasChildNodes()){
+            lostInterestRoot.parentNode.style.display = "none";
         }
         if (!notPurchasedRoot.hasChildNodes() ) {
             notPurchasedRoot.parentNode.style.display = "none";

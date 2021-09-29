@@ -173,7 +173,7 @@ h3 {
   opacity: 1;
 }
 
-#purchased, #notPurchased, #sucessfullyPostponed  {
+#lostInterest, #notPurchased, #sucessfullyPostponed  {
   display: grid;
   justify-items: stretch;
   grid-template-columns: repeat(auto-fill, minmax(470px, 2fr));
@@ -182,6 +182,9 @@ h3 {
 
 .text-center {
     text-align: center;
+}
+#lostInterest #buy {
+  display: none;
 }
 </style>
   </head>
@@ -202,7 +205,7 @@ h3 {
       </div>
       <div>
         <h1>Lost interest</h1>
-        <div id="purchased"></div>
+        <div id="lostInterest"></div>
       </div>
     </div>
     <script src="options.js"></script>
