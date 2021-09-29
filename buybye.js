@@ -91,7 +91,7 @@ function renderModalRemindMe() {
 function renderModalSuccess() {
     modal.innerHTML = '';
     const successLabel = document.createElement("p");
-    successLabel.innerHTML = '<p>Purchase postponed. <p> Not buying this product would save 500g CO2 for the transport alone! <br>[<a href="https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616"> source </a>] <p> Thank you for being conscious about the environment!';
+    successLabel.innerHTML = '<p>Purchase postponed. <p> Not buying this product saves 500g CO2 for the transport alone! [<a href="https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616"> source </a>] <p> Thank you for being conscious about the environment!';
     successLabel.style.textAlign = "center";
     successLabel.style.color = "green";
     modal.appendChild(successLabel);
