@@ -1,8 +1,32 @@
 # Bye, Buy!
 
+"Bye, Buy!" ist ein Add-On, dass Nutzer von Internetshopping-Plattformen dazu anhält, bewusstere Kaufentscheidungen zu
+treffen. Es wurde im Rahmen der Digital Innovation Challenge 2021 (#DIC2021) entwickelt.
+
 ## Setup
 
-Wir empfehlen für die Nutzung unsers Add-On den Firefox-Browser, da wir nur hier Usability-Tests durchgeführt haben.
+### Benutzung des Add-Ons
+
+Wir empfehlen für die Nutzung unsers Add-On den Firefox-Browser, da wir nur hier Usability-Tests durchgeführt haben. Das
+Add-On ist da und da zu finden (TODO).
+
+Auf Amazon-Produkt-Webseiten wird nun neben den Buttons "Add To Cart" und "Buy Now" auch ein grüner Button angezeigt,
+mit dem das Produkt um einige Tage "zurückgestellt" werden kann.
+
+Durch Klick auf das Add-On-Icon in der oberen Leiste des Browsers erfolgt eine Weiterleitung auf eine Web-Ansicht der
+zurückgestellten Produkte. Hier können Produkte auf zwei Weisen wieder entfernt werden: wenn sie doch gekauft wurden
+oder wenn sie nicht gekauft wurden. In letzterem Fall wird die Anzeige der gesparten Kosten und des CO2-Ausstoßes
+aktualisiert.
+
+### Entwicklung
+
+Um direkt den Code dieses Repositories als temporäres Add-On zu nutzen, sind folgende Schritte nötig:
+
+1. Clone dieses Repository
+2. Öffne "about:debugging#/runtime/this-firefox" im Firefox-Browser
+3. Klicke auf "Load Temporaray Add-On..." und wähle eine beliebige Datei im Repository-Ordner aus
+4. Um den Effekt von Code-Änderungen auszuprobieren, kann das Add-On mit "Reload" einfach aktualisiert werden
+5. Nun kann das Add-On auf Amazon-Webseiten genutzt werden
 
 ## Das Problem
 
