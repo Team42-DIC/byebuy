@@ -34,8 +34,8 @@ function relativeTimeLeft(date) {
         day = hour * 24,
         week = day * 7;
 
-    if (delta < 30) {
-        return 'right now';
+    if (delta < 0) {
+        return '-';
     } else if (delta < minute) {
         return delta + ' seconds to go';
     } else if (delta < 2 * minute) {
