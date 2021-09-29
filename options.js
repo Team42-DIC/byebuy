@@ -150,7 +150,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemTime = document.createElement("span");
             const alertDate = new Date(result.items[item].timeStamp)
             alertDate.setDate(alertDate.getDate() + result.items[item].days)
-            itemTime.innerText = "Added " + relativeTime(result.items[item].timeStamp) + ', ' + relativeTimeLeft(alertDate);
+            if (result.items[item].lostInterest) {
+                itemTime.innerText = "Added " + relativeTime(result.items[item].timeStamp) + ', ' + relativeTimeLeft(alertDate);
+            } else {
+                itemTime.innerText = "Added " + relativeTime(result.items[item].timeStamp);
+            }
             itemTime.className += "time";
             itemDiv.appendChild(itemTime);
             const buttons = document.createElement("div");
