@@ -37,8 +37,8 @@ function deleteItem(timestamp) {
     });
 }
 
-function setPurchased(timestamp) {
-    browser.storage.local.get(["items", "savedMoney"]).then(result => {
+function lostInterest(timestamp) {
+    browser.storage.local.get(["items", "savedMoney", "savedCO2"]).then(result => {
         let savedMoney = result.savedMoney || 0;
         const newItems = [];
         for (const item in result.items) {
@@ -51,7 +51,7 @@ function setPurchased(timestamp) {
                 newItems.push(result.items[item]);
             }
         }
-        browser.storage.local.set({items: newItems, savedMoney}).then(() => location.reload());
+        browser.storage.local.set({items: newItems, savedMoney, savedCO2: result.savedCO2 ? result.savedCO2+500 : 500}).then(() => location.reload());
     });
 }
 document.addEventListener("DOMContentLoaded", () => {
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const buyDiv = document.createElement("div");
             buyDiv.className += "tooltip";
             buyDiv.id = "buy";
-            buyDiv.addEventListener("click", () => setPurchased(result.items[item].timeStamp));
+            buyDiv.addEventListener("click", () => lostInterest(result.items[item].timeStamp));
             buyDiv.innerText = "Lost interest";
             buttons.appendChild(buyDiv);
             itemDiv.appendChild(buttons);
