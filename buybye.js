@@ -57,6 +57,21 @@ function closePopup() {
     modalContainer.style.display = "none";
 }
 
+function newButton(label, handler) {
+    const btn = document.createElement("button");
+    btn.innerText = label;
+    btn.addEventListener("click", event => {
+      event.stopPropagation();
+      handler();
+    });
+    btn.style.padding = "10px";
+    btn.style.borderRadius = "10px";
+    btn.className += "a-button";
+    btn.style.borderWidth = "2px";
+    btn.style.margin = 0;
+    return btn;
+}
+
 function renderModalRemindMe() {
     modal.innerHTML = '';
     const askMeAgainLabel = document.createElement("p");
@@ -73,32 +88,17 @@ function renderModalRemindMe() {
 
     modal.appendChild(askMeAgainButtons);
 
-    const addAskMeAgain = (label, handler) => {
-        const askMeAgainBtn = document.createElement("button");
-        askMeAgainBtn.innerText = label;
-        askMeAgainBtn.addEventListener("click", event => {
-          event.stopPropagation();
-          handler();
-        });
-        askMeAgainBtn.style.padding = "10px";
-        askMeAgainBtn.style.borderRadius = "10px";
-        askMeAgainBtn.className += "a-button";
-        askMeAgainBtn.style.borderWidth = "2px";
-        askMeAgainBtn.style.margin = 0;
-        askMeAgainButtons.appendChild(askMeAgainBtn);
-    }
-
-    addAskMeAgain("until tomorrow", () => addToList(1));
-    addAskMeAgain("for 3 days", () => addToList(3));
-    addAskMeAgain("for a week", () => addToList(7));
-    addAskMeAgain("for a month", () => addToList(30));
-    addAskMeAgain("I don't need this at all!", () => renderModalSuccess());
+    askMeAgainButtons.appendChild(newButton("until tomorrow", () => addToList(1)));
+    askMeAgainButtons.appendChild(newButton("for 3 days", () => addToList(3)));
+    askMeAgainButtons.appendChild(newButton("for a week", () => addToList(7)));
+    askMeAgainButtons.appendChild(newButton("for a month", () => addToList(30)));
+    askMeAgainButtons.appendChild(newButton("I don't need this at all!", () => renderModalSuccess()));
 }
 
 function renderModalSuccess() {
     modal.innerHTML = '';
     const successLabel = document.createElement("p");
-    successLabel.innerHTML = "<p>Purchase postponed. <p> Thank you for being conscious about the environment!";
+    successLabel.innerHTML = '<p>Purchase postponed. <p> Not buying this product would save 500g Co2 for the transport alone! [<a href="https://www.sueddeutsche.de/wissen/oeko-bilanz-des-internethandel-das-macht-500-gramm-co2-1.1607616"> source </a>] <p> Thank you for being conscious about the environment!';
     successLabel.style.textAlign = "center";
     successLabel.style.color = "green";
     modal.appendChild(successLabel);
@@ -110,33 +110,12 @@ function renderModalSuccess() {
     buttons.style.height = "150px";
     modal.appendChild(buttons);
 
-    const successBtn1 = document.createElement("button");
-    successBtn1.innerText = "Continue shopping";
-    successBtn1.addEventListener("click", event => {
-      event.stopPropagation();
-      closePopup();
-    });
-    successBtn1.style.marginRight = "5px";
-    successBtn1.style.padding = "10px";
-    successBtn1.style.borderRadius = "10px";
-    successBtn1.className += "a-button";
-    successBtn1.style.borderWidth = "2px";
-    successBtn1.style.margin = 0;
+    const successBtn1 = newButton("Continue shopping", () => closePopup());
     buttons.appendChild(successBtn1);
-
-    const successBtn2 = document.createElement("button");
-    successBtn2.innerText = "Show all postponed purchases";
-    successBtn2.addEventListener("click", event => {
-      event.stopPropagation();
-      browser.runtime.openOptionsPage();
-    });
-    successBtn2.style.marginRight = "5px";
-    successBtn2.style.padding = "10px";
-    successBtn2.style.borderRadius = "10px";
-    successBtn2.className += "a-button";
-    successBtn2.style.borderWidth = "2px";
-    successBtn2.style.margin = 0;
-    buttons.appendChild(successBtn2);
+    //const successBtn2 = newButton("I'm done with shopping", () => window.close());
+    //buttons.appendChild(successBtn2);
+    //const successBtn3 = newButton("Show all postponed purchases", () => null);
+    //buttons.appendChild(successBtn3);
 }
 
 function setupPopup() {
@@ -167,12 +146,8 @@ function setupPopup() {
     modal.style.borderRadius = "5px";
     modal.style.borderColor = "lightgrey";
     modal.style.borderWidth = "2px";
-
     modalContainer.appendChild(modal);
-
-
 
     body.appendChild(modalContainer);
     return [modalContainer, modal];
 }
-
