@@ -140,8 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
             buyDiv.innerText = "Lost interest";
             buttons.appendChild(buyDiv);
             itemDiv.appendChild(buttons);
+            
+            const alertDate = new Date(result.items[item].timeStamp)
+            alertDate.setDate(alertDate.getDate() + result.items[item].days)
+
             if (result.items[item].lostInterest) {
                 purchasedRoot.appendChild(itemDiv)
+            } else if (alertDate>new Date()) {
+                postPonedItems.appendChild(itemDiv);
             } else {
                 notPurchasedRoot.appendChild(itemDiv)
             }
