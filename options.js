@@ -43,7 +43,7 @@ function setPurchased(timestamp) {
         const newItems = [];
         for (const item in result.items) {
             if (timestamp === result.items[item].timeStamp) {
-                newItems.push({purchased: true, ...result.items[item]})
+                newItems.push({lostInterest: true, ...result.items[item]})
                 const euros = parseInt(result.items[item].price.split(" ")[0])
                 const cents = parseInt(result.items[item].price.split(" ")[0].split(",")[1])
                 savedMoney += euros * 100 + cents;
@@ -137,10 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
             buyDiv.className += "tooltip";
             buyDiv.id = "buy";
             buyDiv.addEventListener("click", () => setPurchased(result.items[item].timeStamp));
-            buyDiv.innerText = "Item won't be purchased";
+            buyDiv.innerText = "Lost interest";
             buttons.appendChild(buyDiv);
             itemDiv.appendChild(buttons);
-            if (result.items[item].purchased) {
+            if (result.items[item].lostInterest) {
                 purchasedRoot.appendChild(itemDiv)
             } else {
                 notPurchasedRoot.appendChild(itemDiv)
