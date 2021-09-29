@@ -65,7 +65,7 @@ h3 {
 }
 
 #itemRoot {
-    margin-bottom: 150px;
+    margin-bottom: 50px;
 }
 
 #itemRoot > div > div > div {
@@ -99,6 +99,7 @@ h3 {
 
 #furtherInformation {
     text-align: center;
+    margin-bottom: 150px;
 }
 
 .buttons {
