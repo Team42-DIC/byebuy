@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const itemRoot = document.querySelector('#itemRoot')
         if (result.items.length === 0) {
-            itemRoot.innerHTML = "<p>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";
+            itemRoot.innerHTML = "<p class='text-center'>No purchases have been postponed yet. When you postpone a purchase on Amazon, it will appear here.</p>";
         }
         const purchasedRoot = document.querySelector('#purchased')
         const notPurchasedRoot = document.querySelector('#notPurchased')
