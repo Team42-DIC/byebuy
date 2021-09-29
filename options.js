@@ -97,50 +97,17 @@ document.addEventListener("DOMContentLoaded", () => {
             deleteDiv.className += "tooltip";
             deleteDiv.id = "delete";
             deleteDiv.addEventListener("click", () => deleteItem(result.items[item].timeStamp));
-            const tooltip1 = document.createElement("span");
-            tooltip1.className += "tooltiptext";
-            tooltip1.innerText = "I bought this item";
-            deleteDiv.appendChild(tooltip1);
-            const itemDelete = document.createElement("input");
-            itemDelete.type = "image";
-            itemDelete.src = "icons/sad.png";
-            deleteDiv.appendChild(itemDelete);
+            deleteDiv.innerText = "Item was bought";
             buttons.appendChild(deleteDiv);
 
             const buyDiv = document.createElement("div");
             buyDiv.className += "tooltip";
             buyDiv.id = "buy";
-            const tooltip2 = document.createElement("span");
-            tooltip2.className += "tooltiptext";
-            tooltip2.innerText = "I don't want to buy this anymore";
-            buyDiv.appendChild(tooltip2);
-            const itemBuy = document.createElement("input");
-            itemBuy.type = "image";
-            itemBuy.src = "icons/check-mark.png";
-            buyDiv.appendChild(itemBuy);
             buyDiv.addEventListener("click", () => setPurchased(result.items[item].timeStamp));
+            buyDiv.innerText = "Item won't be purchased";
             buttons.appendChild(buyDiv);
             itemDiv.appendChild(buttons);
             itemRoot.appendChild(itemDiv);
         }
     });
 });
-
-// document.querySelector("#itemForm").addEventListener("submit", event => {
-//     event.preventDefault();
-//     const name = document.querySelector("#itemName").value;
-//     const link = document.querySelector("#itemLink").value;
-//     const price = document.querySelector("#itemPrice").value;
-//     const image = document.querySelector("#itemImage").value;
-//     browser.storage.local.get("items").then(result => {
-//         let items = result.items;
-//         if (!items) {
-//             items = [];
-//         }
-//         items.push({name, link, price, image, timeStamp: Date.now()});
-//         console.log("newItems", items)
-//         browser.storage.local.set({items});
-//         location.reload();
-//     });
-// });
-
