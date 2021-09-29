@@ -97,6 +97,10 @@ h3 {
     grid-area: title;
 }
 
+#furtherInformation {
+    text-align: center;
+}
+
 .buttons {
     grid-area: buttons;
     justify-self: center;
