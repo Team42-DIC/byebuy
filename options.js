@@ -131,6 +131,9 @@ document.addEventListener("DOMContentLoaded", () => {
             deleteDiv.id = "delete";
             deleteDiv.addEventListener("click", () => deleteItem(result.items[item].timeStamp));
             deleteDiv.innerText = "Item was bought";
+            if (result.items[item].lostInterest) {
+                deleteDiv.innerText = "Delete";
+            }
             buttons.appendChild(deleteDiv);
 
             const buyDiv = document.createElement("div");
