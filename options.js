@@ -37,6 +37,21 @@ function deleteItem(timestamp) {
         browser.storage.local.set({items: newItems}).then(() => location.reload());
     });
 }
+
+function setPurchased(timestamp) {
+    browser.storage.sync.get("items").then(result => {
+        const newItems = [];
+        for (const item in result.items) {
+            if (timestamp === result.items[item].timeStamp) {
+                console.log("soos")
+                newItems.push({purchased: true, ...result.items[item]})
+            } else {
+                newItems.push(result.items[item]);
+            }
+        }
+        browser.storage.sync.set({items: newItems}).then(() => location.reload());
+    });
+}
 document.addEventListener("DOMContentLoaded", () => {
     browser.storage.local.get("items").then(result => {
         const itemRoot = document.querySelector('#itemRoot')
@@ -47,7 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("item", result.items[item]);
             
             const itemDiv = document.createElement("div");
-
+            if (result.items[item].purchased) {
+                itemDiv.className += "purchased";
+            }
 
             const itemName = document.createElement("h2");
             const itemLink = document.createElement("a");
@@ -100,8 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemBuy = document.createElement("input");
             itemBuy.type = "image";
             itemBuy.src = "icons/check-mark.png";
-            itemBuy.addEventListener("click", () => {});
             buyDiv.appendChild(itemBuy);
+            buyDiv.addEventListener("click", () => setPurchased(result.items[item].timeStamp));
             buttons.appendChild(buyDiv);
             itemDiv.appendChild(buttons);
             itemRoot.appendChild(itemDiv);
