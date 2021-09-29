@@ -109,7 +109,6 @@ function renderStatistics(result) {
         euros = Math.floor(result.savedMoney/100);
         cents = result.savedMoney - euros * 100;
     }
-    const savedMoneyStatistic = euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €";
     createStatistic(euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €", "of your hard-earned money")
     createStatistic((result.savedCO2/1000 || 0) + " kg", "of CO2 in transport costs")
 }
@@ -128,9 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const postPonedItems = document.querySelector('#sucessfullyPostponed')
         for (const item in result.items) {
             const itemDiv = document.createElement("div");
-            // if (result.items[item].purchased) {
-            //     itemDiv.className += "purchased";
-            // }
 
             const itemName = document.createElement("h2");
             const itemLink = document.createElement("a");
