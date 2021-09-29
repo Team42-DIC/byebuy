@@ -39,11 +39,10 @@ function deleteItem(timestamp) {
 }
 
 function setPurchased(timestamp) {
-    browser.storage.sync.get("items").then(result => {
+    browser.storage.local.get("items").then(result => {
         const newItems = [];
         for (const item in result.items) {
             if (timestamp === result.items[item].timeStamp) {
-                console.log("soos")
                 newItems.push({purchased: true, ...result.items[item]})
             } else {
                 newItems.push(result.items[item]);
