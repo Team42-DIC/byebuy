@@ -1,23 +1,19 @@
-function onError(error) {
-  console.log(`Error: ${error}`);
-
-}
-var newNode = document.createElement("div");
-newNode.className = "a-button a-button-stack a-spacing-small a-button-inner celwidget a-button-icon ";
-newNode.style.lineHeight = "1.95em"
-newNode.style.width = "100%"
-newNode.textContent = "byebuy: Postpone & Save CO2";
-newNode.style.backgroundColor = "#90ee90";
-newNode.addEventListener("click", event => {
+const postponeButton = document.createElement("div");
+postponeButton.className = "a-button a-button-stack a-spacing-small a-button-inner celwidget a-button-icon ";
+postponeButton.style.lineHeight = "1.95em"
+postponeButton.style.width = "100%"
+postponeButton.textContent = "byebuy: Postpone & Save CO2";
+postponeButton.style.backgroundColor = "#90ee90";
+postponeButton.addEventListener("click", event => {
     event.stopPropagation();
     openPopup();
 })
 
-newNode.addEventListener("mouseenter", () => newNode.style.backgroundColor = "#64e764");
-newNode.addEventListener("mouseleave", () => newNode.style.backgroundColor = "#90ee90");
+postponeButton.addEventListener("mouseenter", () => postponeButton.style.backgroundColor = "#64e764");
+postponeButton.addEventListener("mouseleave", () => postponeButton.style.backgroundColor = "#90ee90");
 
 const cartButton = document.getElementById('add-to-cart-button').parentNode.parentElement.parentNode.parentNode.parentNode;
-cartButton.parentNode.insertBefore(newNode, cartButton.nextSibling);
+cartButton.parentNode.insertBefore(postponeButton, cartButton.nextSibling);
 
 function addToList(days) {
     const link = window.location.href;
@@ -27,16 +23,16 @@ function addToList(days) {
         price = document.getElementById("priceblock_dealprice")
     }
     price = price.innerText
-    const image= document.getElementById("landingImage").src;
+    const image = document.getElementById("landingImage").src;
     const timeStamp = Date.now();
     browser.storage.local.get("items").then(result => {
         let items = result.items;
         if (!items) {
             items = [];
         }
-        items.push({ name, link, price, image, timeStamp, days });
-        browser.storage.local.set({ items }).then(renderModalSuccess);
-    }, onError);
+        items.push({name, link, price, image, timeStamp, days});
+        browser.storage.local.set({items}).then(renderModalSuccess);
+    });
 }
 
 const [modalContainer, modal] = setupPopup();
@@ -54,8 +50,8 @@ function newButton(label, handler) {
     const btn = document.createElement("button");
     btn.innerText = label;
     btn.addEventListener("click", event => {
-      event.stopPropagation();
-      handler();
+        event.stopPropagation();
+        handler();
     });
     btn.style.padding = "10px";
     btn.style.borderRadius = "10px";
@@ -70,7 +66,7 @@ function renderModalRemindMe() {
     const askMeAgainLabel = document.createElement("p");
     askMeAgainLabel.innerHTML = "<p>Is this purchase really necessary?<p> Maybe you should think about it for a while. Be part of a sustainable world!<p> Postpone this product...";
     askMeAgainLabel.style.textAlign = "center";
-    
+
     modal.appendChild(askMeAgainLabel);
 
     const askMeAgainButtons = document.createElement("div");
@@ -119,7 +115,7 @@ function renderModalSuccess() {
 
 function setupPopup() {
     const body = document.querySelector("body");
-    
+
     const modalContainer = document.createElement("div");
     modalContainer.style.position = "fixed";
     modalContainer.style.zIndex = "1000";
@@ -130,7 +126,7 @@ function setupPopup() {
     modalContainer.style.overflow = "auto";
     modalContainer.style.backgroundColor = "rgba(0,0,0,0.3)";
     modalContainer.style.display = "none";
-    
+
     document.addEventListener("click", event => {
         if (!modal.contains(event.target)) {
             closePopup();
