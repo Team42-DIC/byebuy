@@ -4,14 +4,8 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
-.greyed {
-    filter: grayscale(100%);
-}
-
-.itemHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+ul {
+    list-style: none;
 }
 
 h1 {
@@ -23,6 +17,11 @@ h2 {
     margin: 0;
 }
 
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
 .price {
     color: #B12704;
     font-size: larger;
@@ -31,6 +30,10 @@ h2 {
 
 .xxl {
     font-size: xx-large;
+}
+
+.text-center {
+    text-align: center;
 }
 
 #statisticsRoot {
@@ -51,24 +54,16 @@ a:hover {
     text-decoration: underline;
 }
 
-.link {
-    font-size: small;
-}
-
 input {
     width: 32px;
 }
 
-h3 {
-    margin: 0;
-    padding: 0;
-}
 
 #itemRoot {
     margin-bottom: 50px;
 }
 
-#itemRoot > div > div > div {
+.card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 10px;
@@ -86,14 +81,14 @@ h3 {
   "buttons ";
 }
 
-#itemRoot > div > div > div > img {
+.card img {
     grid-area: image;
     max-width: 300px;
     max-height: 300px;
     justify-self: center;
 }
 
-#itemRoot > div > div > div > h2 {
+.card h2 {
     grid-area: title;
 }
 
@@ -139,65 +134,11 @@ h3 {
     background-color: #64e764;
 }
 
-ul {
-    margin: 0;
-
-    padding: 0;
-    list-style: none;
-}
-
-li {
-    margin: 10px 0;
-}
-
-.tooltip {
-    position: relative;
-    cursor: pointer;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-size: small;
-}
-
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}
-
 #lostInterest, #notPurchased, #sucessfullyPostponed {
     display: grid;
     justify-items: stretch;
     grid-template-columns: repeat(auto-fill, minmax(470px, 2fr));
     gap: 20px;
-}
-
-.text-center {
-    text-align: center;
 }
 
 #lostInterest #buy {

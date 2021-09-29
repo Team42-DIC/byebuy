@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const postPonedItems = document.querySelector('#sucessfullyPostponed')
         result.items.forEach(item => {
             const itemDiv = document.createElement("div");
+            itemDiv.className += "card";
 
             const itemName = document.createElement("h2");
             const itemLink = document.createElement("a");
