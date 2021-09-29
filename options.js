@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const savedMoneyStatistic = euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €";
         createStatistic(euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €", "of your hard-earned money")
-        createStatistic((result.savedCO2 || 0) + " g", "of CO2 in transport costs")
+        createStatistic((result.savedCO2/1000 || 0) + " kg", "of CO2 in transport costs")
 
 
         const itemRoot = document.querySelector('#itemRoot')
