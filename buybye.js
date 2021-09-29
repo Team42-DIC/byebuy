@@ -15,15 +15,34 @@ postponeButton.addEventListener("mouseleave", () => postponeButton.style.backgro
 const cartButton = document.getElementById('add-to-cart-button').parentNode.parentElement.parentNode.parentNode.parentNode;
 cartButton.parentNode.insertBefore(postponeButton, cartButton.nextSibling);
 
+function getElementByMultipleIds(possibleIds) {
+    let finalNode = null;
+    possibleIds.forEach(possibleId => {
+        console.log(possibleId)
+        const node = document.getElementById(possibleId);
+        console.log(node)
+        if (node !== null) {
+            finalNode = node;
+        }
+    });
+    return finalNode;
+}
+
 function addToList(days) {
     const link = window.location.href;
     const name = document.getElementById("productTitle").innerText;
-    let price = document.getElementById("priceblock_ourprice")
+    let price = getElementByMultipleIds(["price", "priceblock_dealprice", "priceblock_ourprice"])
     if (price === null) {
-        price = document.getElementById("priceblock_dealprice")
+        price = "Unknown"
+    } else {
+        price = price.innerText
     }
-    price = price.innerText
-    const image = document.getElementById("landingImage").src;
+    let image = getElementByMultipleIds(["landingImage", "imgBlkFront"])
+    if (image === null) {
+        image = "open-box.png";
+    } else {
+        image = image.src;
+    }
     const timeStamp = Date.now();
     browser.storage.local.get("items").then(result => {
         let items = result.items;

@@ -203,3 +203,7 @@ li {
 #lostInterest #buy {
     display: none;
 }
+
+#lostInterest img {
+    filter: grayscale(100%) brightness(120%);
+}
