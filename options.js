@@ -54,36 +54,41 @@ function lostInterest(timestamp) {
         browser.storage.local.set({items: newItems, savedMoney, savedCO2: result.savedCO2 ? result.savedCO2+500 : 500}).then(() => location.reload());
     });
 }
+
+function renderStatistics() {
+    const statisticsRoot = document.querySelector('#statisticsRoot');
+
+    function createStatistic(statistic, label) {
+        const statisticContainer = document.createElement("div")
+        const savedMoneyPrice = document.createElement("div")
+        savedMoneyPrice.innerText = statistic;
+        savedMoneyPrice.className += "price xxl";
+        statisticContainer.appendChild(savedMoneyPrice);
+
+        const statisticLabel = document.createElement("span")
+        statisticLabel.innerHTML = label;
+        statisticLabel.classNames += "xxl";
+        statisticContainer.appendChild(statisticLabel);
+        statisticsRoot.appendChild(statisticContainer);
+    }
+
+    let euros;
+    let cents;
+    if (!result.savedMoney) {
+        euros = 0;
+        cents = 0;
+    } else {
+        euros = Math.floor(result.savedMoney/100);
+        cents = result.savedMoney - euros * 100;
+    }
+    const savedMoneyStatistic = euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €";
+    createStatistic(euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €", "of your hard-earned money")
+    createStatistic((result.savedCO2/1000 || 0) + " kg", "of CO2 in transport costs")
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     browser.storage.local.get(["items", "savedMoney", "savedCO2"]).then(result => {
-        const statisticsRoot = document.querySelector('#statisticsRoot');
-
-        function createStatistic(statistic, label) {
-            const statisticContainer = document.createElement("div")
-            const savedMoneyPrice = document.createElement("div")
-            savedMoneyPrice.innerText = statistic;
-            savedMoneyPrice.className += "price xxl";
-            statisticContainer.appendChild(savedMoneyPrice);
-
-            const statisticLabel = document.createElement("span")
-            statisticLabel.innerHTML = label;
-            statisticLabel.classNames += "xxl";
-            statisticContainer.appendChild(statisticLabel);
-            statisticsRoot.appendChild(statisticContainer);
-        }
-
-        let euros;
-        let cents;
-        if (!result.savedMoney) {
-            euros = 0;
-            cents = 0;
-        } else {
-            euros = Math.floor(result.savedMoney/100);
-            cents = result.savedMoney - euros * 100;
-        }
-        const savedMoneyStatistic = euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €";
-        createStatistic(euros + "," + ((''+cents).length === 1 ? cents + "0" : cents) + " €", "of your hard-earned money")
-        createStatistic((result.savedCO2/1000 || 0) + " kg", "of CO2 in transport costs")
+        renderStatistics();
 
 
         const itemRoot = document.querySelector('#itemRoot')
