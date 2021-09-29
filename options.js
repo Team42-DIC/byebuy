@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
             deleteDiv.id = "delete";
             const tooltip1 = document.createElement("span");
             tooltip1.className += "tooltiptext";
-            tooltip1.innerText = "I want to buy it anyway";
+            tooltip1.innerText = "I bought this item";
             deleteDiv.appendChild(tooltip1);
             const itemDelete = document.createElement("input");
             itemDelete.type = "image";
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             buyDiv.id = "buy";
             const tooltip2 = document.createElement("span");
             tooltip2.className += "tooltiptext";
-            tooltip2.innerText = "Nevermind, I don't want to buy it anymore";
+            tooltip2.innerText = "I don't want to buy this anymore";
             buyDiv.appendChild(tooltip2);
             const itemBuy = document.createElement("input");
             itemBuy.type = "image";
