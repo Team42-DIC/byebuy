@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "name": "ByeBuy",
   "version": "1.0",
-  "homepage_url": "https://byebuy.de",
+  "homepage_url": "https://github.com/Team42/byebuy",
   "icons": {
     "48": "icons/border-48.png"
   },
@@ -28,7 +28,7 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "info@byebuy.de"
+      "id": "team42@github.com/Team42/byebuy"
     }
   },
 
