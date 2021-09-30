@@ -2,7 +2,7 @@
 
 ByeBuy ist ein Add-On, dass Nutzer von Internetshopping-Plattformen dazu anhält, bewusstere Kaufentscheidungen zu
 treffen. Es wurde im Rahmen der Digital Innovation Challenge 2021 (#DIC2021) von Studierenden am Hasso-Plattner-Institut
-entwickelt. Dabei hat das Add-On den ersten Platz erreicht.
+entwickelt. Dabei hat das Add-On den ersten Platz erreicht 🥇 🥳.
 
 ## Setup
 
