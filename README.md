@@ -8,12 +8,7 @@ entwickelt.
 
 ### Installation des Add-Ons
 
-Wir haben das Add-On zunächst nur für den Firefox-Browser getestet.
-
-1. Lade das Addon [hier](byebuy-1.0-fx.xpi) herunter.
-2. Gib `about:addons` und drücke auf das Zahnrad.
-3. Klicke auf `Install Add-On from file` und wähle die heruntergeladene Datei aus.
-4. Drücke oben links auf "erlauben".
+Wir haben das Add-On zunächst nur für den Firefox-Browser getestet. Es kann auf [https://addons.mozilla.org/en-US/firefox/addon/byebuy/](https://addons.mozilla.org/en-US/firefox/addon/byebuy/) heruntergeladen werden (Nachtrag 30.09.21).
 
 ### Entwicklung
 
