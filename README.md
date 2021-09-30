@@ -2,13 +2,13 @@
 
 ByeBuy ist ein Add-On, dass Nutzer von Internetshopping-Plattformen dazu anhält, bewusstere Kaufentscheidungen zu
 treffen. Es wurde im Rahmen der Digital Innovation Challenge 2021 (#DIC2021) von Studierenden am Hasso-Plattner-Institut
-entwickelt.
+entwickelt. Dabei konnten wir mit dem Add-On den ersten Platz belegen.
 
 ## Setup
 
 ### Installation des Add-Ons
 
-Wir haben das Add-On zunächst nur für den Firefox-Browser getestet. Es kann auf [https://addons.mozilla.org/en-US/firefox/addon/byebuy/](https://addons.mozilla.org/en-US/firefox/addon/byebuy/) heruntergeladen werden (Nachtrag 30.09.21).
+Wir haben das Add-On zunächst nur für den Firefox-Browser getestet. Es kann auf [https://addons.mozilla.org/en-US/firefox/addon/byebuy/](https://addons.mozilla.org/en-US/firefox/addon/byebuy/) heruntergeladen werden.
 
 ### Entwicklung
 
